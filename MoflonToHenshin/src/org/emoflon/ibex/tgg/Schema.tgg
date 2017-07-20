@@ -49,6 +49,11 @@
 		#src->TGGInplaceAttributeExpression
 		#trg->Parameter
 	}
+	
+	TGGNacToHenshinNac{
+		#src->TGGRuleNode
+		#trg->Formula
+	}
 }
 
 #attributeConditions {

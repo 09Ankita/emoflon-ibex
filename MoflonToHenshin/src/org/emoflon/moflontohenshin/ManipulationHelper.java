@@ -74,7 +74,6 @@ public class ManipulationHelper {
 				return rule.forceCreation(node, src, trg, corrR);
 		}
 		return ManipulationUtil.getInstance().defaultCreateCorr(node, src, trg, corrR);
-		//return ManipulationUtil.getDefaultCorrCreationFun().apply(node).apply(src).apply(trg).apply(corrR);
 	}
 	
 	

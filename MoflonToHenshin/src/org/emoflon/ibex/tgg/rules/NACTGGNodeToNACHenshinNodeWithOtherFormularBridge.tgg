@@ -1,0 +1,49 @@
+#using MoflonToHenshin.*
+#using AttrCondDefLibrary.*
+
+#rule NACTGGNodeToNACHenshinNodeWithOtherFormularBridge #with MoflonToHenshin
+
+#source { 
+	tTGGRule : TGGRule{
+		++ -nodes -> tTGGNode
+	}
+	
+	tTGGNode : TGGRuleNode{
+		bindingType := enum::BindingType::NEGATIVE
+	}
+}
+
+#target {
+	hRule : Rule{
+		 - lhs -> lhs
+	}	
+	
+	 lhs : Graph{
+	 	- formula -> formula
+	 	++ -formula -> and
+	 }
+	formula : Formula
+	
+	++ and : And {
+		++ - left -> formula
+		++ - right -> hNot
+	}
+	
+	hNot : Not
+}
+
+#correspondence {
+	nacToNac : TGGNacToHenshinNac {
+		#src->tTGGNode
+		#trg->hNot
+	}
+	
+	tggRuleToHenshinRule : TGGRuleToHenshinRule {
+		#src->tTGGRule
+		#trg->hRule
+	}
+}
+
+#attributeConditions {
+	
+}

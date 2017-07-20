@@ -1,0 +1,33 @@
+#using MoflonToHenshin.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule NACTGGNodeToNACHenshinNodeIsland #with MoflonToHenshin
+
+#source { 
+	++ tTGGNode : TGGRuleNode{
+		bindingType := enum::BindingType::NEGATIVE
+	}
+}
+
+#target {
+	++ hNac : NestedCondition{
+		++ - conclusion -> hGraph
+	}
+	
+	++ hGraph : Graph
+	
+	++ hNot : Not{
+		++ - child -> hNac
+	}
+}
+
+#correspondence {
+	++ nacToNac : TGGNacToHenshinNac {
+		#src->tTGGNode
+		#trg->hNot
+	}
+}
+
+#attributeConditions {
+	
+}
