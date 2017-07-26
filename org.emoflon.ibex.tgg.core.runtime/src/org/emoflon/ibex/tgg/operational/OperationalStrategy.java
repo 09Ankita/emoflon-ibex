@@ -508,4 +508,13 @@ public abstract class OperationalStrategy {
 	public TGG getTGG() {
 		return options.tgg();
 	}
+	
+	public void setMarkedEdges(Collection<RuntimeEdge> edges) {
+		markedEdges.clear();
+		markedEdges.addAll(edges);
+	}
+	
+	public Collection<RuntimeEdge> getMarkedEdges() {
+		return markedEdges;
+	}
 }

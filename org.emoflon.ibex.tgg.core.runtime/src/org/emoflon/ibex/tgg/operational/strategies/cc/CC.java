@@ -102,6 +102,12 @@ public abstract class CC extends OperationalStrategy {
 			}
 		}
 		consistencyReporter.init(s, t, p, ruleInfos);
+		fillMarkedEdges();
+	}
+	
+	private void fillMarkedEdges() {
+		markedEdges.addAll(consistencyReporter.getConsistentSrcEdges());
+		markedEdges.addAll(consistencyReporter.getConsistentTrgEdges());
 	}
 
 	@Override
@@ -373,7 +379,15 @@ public abstract class CC extends OperationalStrategy {
 	public Collection<RuntimeEdge> getInconsistentTrgEdges() {
 		return consistencyReporter.getInconsistentTrgEdges();
 	}
-
+	
+	public Collection<RuntimeEdge> getConsistentSrcEdges() {
+		return consistencyReporter.getConsistentSrcEdges();
+	}
+	
+	public Collection<RuntimeEdge> getConsistentTrgEdges() {
+		return consistencyReporter.getConsistentTrgEdges();
+	}
+	
 	public String generateConsistencyReport() {
 		String result = "";
 		if (modelsAreConsistent())

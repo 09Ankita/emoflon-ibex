@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.emoflon.ibex.tgg.core.transformation.csp.sorting.CSPSearchPlanMode;
 import org.emoflon.ibex.tgg.core.transformation.csp.sorting.SearchPlanAction;
@@ -103,13 +104,27 @@ public class EditorTGGtoInternalTGG {
 				IFile tggFile = project.getFolder(IbexTGGBuilder.MODEL_FOLDER).getFile(project.getName() + IbexTGGBuilder.INTERNAL_TGG_MODEL_EXTENSION);
 				IbexTGGBuilder.saveModelInProject(tggFile, rs, p.getTggModel());
 				IFile flattenedTggFile = project.getFolder(IbexTGGBuilder.MODEL_FOLDER).getFile(project.getName() + IbexTGGBuilder.INTERNAL_TGG_FLATTENED_MODEL_EXTENSION);
-				IbexTGGBuilder.saveModelInProject(flattenedTggFile, rs, p.getFlattenedTggModel());
+				Resource int_model_flat_res = IbexTGGBuilder.saveModelInProject(flattenedTggFile, rs, p.getFlattenedTggModel());
+			
+				// the visualized internal model is only created if non existent so that we can keep it consistent and the visualization only changes minimally
+				IFile flattenedVisTggFile = project.getFolder(IbexTGGBuilder.MODEL_FOLDER).getFile(project.getName() + IbexTGGBuilder.INTERNAL_TGG_FLATTENED_MODEL_EXTENSION);
+				if(!flattenedVisTggFile.exists())
+					IbexTGGBuilder.saveModelInProject(flattenedVisTggFile, rs, p.getFlattenedTggModel());
+				else {
+					Resource int_model_flat_vis_res = IbexTGGBuilder.loadModelInProject(flattenedVisTggFile, rs);		
+					keepTGGVisModelConsistent(project, int_model_flat_res, int_model_flat_vis_res);
+				}
 			} catch (IOException e) {
 				LogUtils.error(logger, e);
 			}
 		});
 		
 		return tggProject;
+	}
+
+	private void keepTGGVisModelConsistent(IProject project, Resource srcRes, Resource trgRes) {
+		IFile flattenedVisTggFile = project.getFolder(IbexTGGBuilder.MODEL_FOLDER).getFile(project.getName() + IbexTGGBuilder.INTERNAL_TGG_FLATTENED_MODEL_EXTENSION);
+//		CC_
 	}
 
 	private TGG createTGG(TripleGraphGrammarFile xtextTGG) {

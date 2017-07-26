@@ -26,6 +26,10 @@ public class ConsistencyReporter {
 	
 	private Collection<RuntimeEdge> inconsistentSrcEdges;
 	private Collection<RuntimeEdge> inconsistentTrgEdges;
+	
+	private Collection<RuntimeEdge> consistentSrcEdges;
+	private Collection<RuntimeEdge> consistentTrgEdges;
+
 
 	public void init(Resource src, Resource trg, Resource protocol, RuleInfos ruleInfos) {
 		this.ruleInfos = ruleInfos;
@@ -33,6 +37,8 @@ public class ConsistencyReporter {
 		inconsistentTrgNodes = extractInconsistentNodes(trg, protocol, Domain.TRG);
 		inconsistentSrcEdges = extractInconsistentEdges(src, protocol, Domain.SRC);
 		inconsistentTrgEdges = extractInconsistentEdges(trg, protocol, Domain.TRG);
+		consistentSrcEdges = extractConsistentEdges(src, protocol, Domain.SRC);
+		consistentTrgEdges = extractConsistentEdges(trg, protocol, Domain.TRG);
 	}
 	
 	public Collection<EObject> getInconsistentSrcNodes() {
@@ -49,6 +55,14 @@ public class ConsistencyReporter {
 
 	public Collection<RuntimeEdge> getInconsistentTrgEdges() {
 		return inconsistentTrgEdges;
+	}
+	
+	public Collection<RuntimeEdge> getConsistentSrcEdges() {
+		return consistentSrcEdges;
+	}
+
+	public Collection<RuntimeEdge> getConsistentTrgEdges() {
+		return consistentTrgEdges;
 	}
 
 	private Collection<EObject> extractInconsistentNodes(Resource resource, Resource protocol, Domain domain) {
@@ -111,6 +125,25 @@ public class ConsistencyReporter {
 		return edges;
 	}
 	
+	private Collection<RuntimeEdge> extractConsistentEdges(Resource resource, Resource protocol, Domain domain) {
+		Collection<RuntimeEdge> edges = new TCustomHashSet<>(new RuntimeEdgeHashingStrategy());
+		
+		protocol.getContents().forEach(c -> {
+			if (c instanceof TGGRuleApplication) {
+				TGGRuleApplication ra = (TGGRuleApplication) c;
+				Collection<TGGRuleEdge> specificationEdges = domain == Domain.SRC
+						? ruleInfos.getGreenSrcEdges(ra.getName()) : ruleInfos.getGreenTrgEdges(ra.getName());
+				for(TGGRuleEdge specificationEdge : specificationEdges){
+					EObject srcOfEdge = ra.getNodeMappings().get(specificationEdge.getSrcNode().getName());
+					EObject trgOfEdge = ra.getNodeMappings().get(specificationEdge.getTrgNode().getName());
+					EReference refOfEdge = specificationEdge.getType();
+					RuntimeEdge edge = new RuntimeEdge(srcOfEdge, trgOfEdge, refOfEdge);
+					edges.add(edge);
+				}
+			}
+		});
+		return edges;
+	}
 	
 
 	private enum Domain {

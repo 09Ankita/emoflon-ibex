@@ -4,7 +4,6 @@ package org.emoflon.ibex.tgg.compiler.defaults
 import java.util.Collection
 import language.csp.definition.TGGAttributeConstraintDefinition
 import org.emoflon.ibex.tgg.compiler.defaults.UserAttrCondHelper
-
 class DefaultFilesGenerator {
 
 	static def generateUserRuntimeAttrCondFactory(Collection<String> userDefConstraints) {
