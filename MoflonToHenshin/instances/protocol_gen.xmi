@@ -2,22 +2,22 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.emoflon.ibex.tgg.core.runtime="platform:/plugin/org.emoflon.ibex.tgg.core.runtime/model/Runtime.ecore">
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGNodeToContextHenshinNodeIsland" final="true">
     <createdSrc href="instances/testTGG.xmi#//@rules.0/@nodes.5"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@mappings.0"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.0"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.0"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@mappings.1"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.1"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.1"/>
     <createdCorr href="instances/corr_gen.xmi#/0"/>
     <createdCorr href="instances/corr_gen.xmi#/1"/>
     <nodeMappings key="mapping">
-      <value href="instances/trg_gen.xmi#//@units.0/@mappings.0"/>
+      <value href="instances/trg_gen.xmi#//@units.0/@mappings.1"/>
     </nodeMappings>
     <nodeMappings key="hLHSNodeNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.0"/>
+      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.1"/>
     </nodeMappings>
     <nodeMappings key="tggNodeToRHSHenshinNode">
       <value href="instances/corr_gen.xmi#/0"/>
     </nodeMappings>
     <nodeMappings key="hRHSNodeNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.0"/>
+      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.1"/>
     </nodeMappings>
     <nodeMappings key="tggNodeToLHSHenshinNode">
       <value href="instances/corr_gen.xmi#/1"/>
@@ -26,34 +26,82 @@
       <value href="instances/testTGG.xmi#//@rules.0/@nodes.5"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="AttributeAssignmentToSetAttributeIsland" final="true">
-    <createdSrc href="instances/testTGG.xmi#//@rules.0/@nodes.4/@attrExpr.0"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@parameters.0"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.2/@attributes.0"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGNodeToContextHenshinNodeIsland" final="true">
+    <createdSrc href="instances/testTGG.xmi#//@rules.0/@nodes.3"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@mappings.5"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.5"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.5"/>
     <createdCorr href="instances/corr_gen.xmi#/2"/>
     <createdCorr href="instances/corr_gen.xmi#/3"/>
-    <nodeMappings key="hParameter">
-      <value href="instances/trg_gen.xmi#//@units.0/@parameters.0"/>
+    <nodeMappings key="mapping">
+      <value href="instances/trg_gen.xmi#//@units.0/@mappings.5"/>
     </nodeMappings>
-    <nodeMappings key="hAttribute">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.2/@attributes.0"/>
+    <nodeMappings key="hLHSNodeNode">
+      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.5"/>
     </nodeMappings>
-    <nodeMappings key="tGGAttributeToHenshinAttribute">
+    <nodeMappings key="tggNodeToRHSHenshinNode">
       <value href="instances/corr_gen.xmi#/2"/>
     </nodeMappings>
-    <nodeMappings key="tggAttributeToHenshinParameter">
+    <nodeMappings key="hRHSNodeNode">
+      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.5"/>
+    </nodeMappings>
+    <nodeMappings key="tggNodeToLHSHenshinNode">
       <value href="instances/corr_gen.xmi#/3"/>
     </nodeMappings>
-    <nodeMappings key="tAttributeInplace">
-      <value href="instances/testTGG.xmi#//@rules.0/@nodes.4/@attrExpr.0"/>
+    <nodeMappings key="tTGGNode">
+      <value href="instances/testTGG.xmi#//@rules.0/@nodes.3"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGEdgeToContextHenshinEdgeIsland" final="true">
+    <createdSrc href="instances/testTGG.xmi#//@rules.0/@edges.3"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@lhs/@edges.1"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs/@edges.1"/>
+    <createdCorr href="instances/corr_gen.xmi#/4"/>
+    <createdCorr href="instances/corr_gen.xmi#/5"/>
+    <nodeMappings key="rhsTggEdgeToHenshinEdge">
+      <value href="instances/corr_gen.xmi#/4"/>
+    </nodeMappings>
+    <nodeMappings key="hRhsEdge">
+      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@edges.1"/>
+    </nodeMappings>
+    <nodeMappings key="lhsTggEdgeToHenshinEdge">
+      <value href="instances/corr_gen.xmi#/5"/>
+    </nodeMappings>
+    <nodeMappings key="hLhsEdge">
+      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@edges.1"/>
+    </nodeMappings>
+    <nodeMappings key="tTGGEdge">
+      <value href="instances/testTGG.xmi#//@rules.0/@edges.3"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGEdgeToContextHenshinEdgeIsland" final="true">
+    <createdSrc href="instances/testTGG.xmi#//@rules.0/@edges.1"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@lhs/@edges.2"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs/@edges.2"/>
+    <createdCorr href="instances/corr_gen.xmi#/6"/>
+    <createdCorr href="instances/corr_gen.xmi#/7"/>
+    <nodeMappings key="rhsTggEdgeToHenshinEdge">
+      <value href="instances/corr_gen.xmi#/6"/>
+    </nodeMappings>
+    <nodeMappings key="hRhsEdge">
+      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@edges.2"/>
+    </nodeMappings>
+    <nodeMappings key="lhsTggEdgeToHenshinEdge">
+      <value href="instances/corr_gen.xmi#/7"/>
+    </nodeMappings>
+    <nodeMappings key="hLhsEdge">
+      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@edges.2"/>
+    </nodeMappings>
+    <nodeMappings key="tTGGEdge">
+      <value href="instances/testTGG.xmi#//@rules.0/@edges.1"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="TGGToModuleIsland" final="true">
     <createdSrc href="instances/testTGG.xmi#/"/>
     <createdTrg href="instances/trg_gen.xmi#/"/>
-    <createdCorr href="instances/corr_gen.xmi#/4"/>
+    <createdCorr href="instances/corr_gen.xmi#/8"/>
     <nodeMappings key="tggToModule">
-      <value href="instances/corr_gen.xmi#/4"/>
+      <value href="instances/corr_gen.xmi#/8"/>
     </nodeMappings>
     <nodeMappings key="hModule">
       <value href="instances/trg_gen.xmi#/"/>
@@ -62,196 +110,26 @@
       <value href="instances/testTGG.xmi#/"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGEdgeToContextHenshinEdgeIsland" final="true">
-    <createdSrc href="instances/testTGG.xmi#//@rules.0/@edges.3"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@lhs/@edges.2"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs/@edges.2"/>
-    <createdCorr href="instances/corr_gen.xmi#/5"/>
-    <createdCorr href="instances/corr_gen.xmi#/6"/>
-    <nodeMappings key="rhsTggEdgeToHenshinEdge">
-      <value href="instances/corr_gen.xmi#/5"/>
-    </nodeMappings>
-    <nodeMappings key="hRhsEdge">
-      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@edges.2"/>
-    </nodeMappings>
-    <nodeMappings key="lhsTggEdgeToHenshinEdge">
-      <value href="instances/corr_gen.xmi#/6"/>
-    </nodeMappings>
-    <nodeMappings key="hLhsEdge">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@edges.2"/>
-    </nodeMappings>
-    <nodeMappings key="tTGGEdge">
-      <value href="instances/testTGG.xmi#//@rules.0/@edges.3"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGNodeToContextHenshinNodeIsland" final="true">
-    <createdSrc href="instances/testTGG.xmi#//@rules.0/@nodes.1"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@mappings.5"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.5"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.5"/>
-    <createdCorr href="instances/corr_gen.xmi#/7"/>
-    <createdCorr href="instances/corr_gen.xmi#/8"/>
-    <nodeMappings key="mapping">
-      <value href="instances/trg_gen.xmi#//@units.0/@mappings.5"/>
-    </nodeMappings>
-    <nodeMappings key="hLHSNodeNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.5"/>
-    </nodeMappings>
-    <nodeMappings key="tggNodeToRHSHenshinNode">
-      <value href="instances/corr_gen.xmi#/7"/>
-    </nodeMappings>
-    <nodeMappings key="hRHSNodeNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.5"/>
-    </nodeMappings>
-    <nodeMappings key="tggNodeToLHSHenshinNode">
-      <value href="instances/corr_gen.xmi#/8"/>
-    </nodeMappings>
-    <nodeMappings key="tTGGNode">
-      <value href="instances/testTGG.xmi#//@rules.0/@nodes.1"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGNodeToContextHenshinNodeIsland" final="true">
-    <createdSrc href="instances/testTGG.xmi#//@rules.0/@nodes.3"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@mappings.4"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.4"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.4"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="AttributeAssignmentToSetAttributeIsland" final="true">
+    <createdSrc href="instances/testTGG.xmi#//@rules.0/@nodes.4/@attrExpr.0"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@parameters.0"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.3/@attributes.0"/>
     <createdCorr href="instances/corr_gen.xmi#/9"/>
     <createdCorr href="instances/corr_gen.xmi#/10"/>
-    <nodeMappings key="mapping">
-      <value href="instances/trg_gen.xmi#//@units.0/@mappings.4"/>
+    <nodeMappings key="hParameter">
+      <value href="instances/trg_gen.xmi#//@units.0/@parameters.0"/>
     </nodeMappings>
-    <nodeMappings key="hLHSNodeNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.4"/>
+    <nodeMappings key="hAttribute">
+      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.3/@attributes.0"/>
     </nodeMappings>
-    <nodeMappings key="tggNodeToRHSHenshinNode">
+    <nodeMappings key="tGGAttributeToHenshinAttribute">
       <value href="instances/corr_gen.xmi#/9"/>
     </nodeMappings>
-    <nodeMappings key="hRHSNodeNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.4"/>
-    </nodeMappings>
-    <nodeMappings key="tggNodeToLHSHenshinNode">
+    <nodeMappings key="tggAttributeToHenshinParameter">
       <value href="instances/corr_gen.xmi#/10"/>
     </nodeMappings>
-    <nodeMappings key="tTGGNode">
-      <value href="instances/testTGG.xmi#//@rules.0/@nodes.3"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGNodeToContextHenshinNodeIsland" final="true">
-    <createdSrc href="instances/testTGG.xmi#//@rules.0/@nodes.0"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@mappings.3"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.3"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.3"/>
-    <createdCorr href="instances/corr_gen.xmi#/11"/>
-    <createdCorr href="instances/corr_gen.xmi#/12"/>
-    <nodeMappings key="mapping">
-      <value href="instances/trg_gen.xmi#//@units.0/@mappings.3"/>
-    </nodeMappings>
-    <nodeMappings key="hLHSNodeNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.3"/>
-    </nodeMappings>
-    <nodeMappings key="tggNodeToRHSHenshinNode">
-      <value href="instances/corr_gen.xmi#/11"/>
-    </nodeMappings>
-    <nodeMappings key="hRHSNodeNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.3"/>
-    </nodeMappings>
-    <nodeMappings key="tggNodeToLHSHenshinNode">
-      <value href="instances/corr_gen.xmi#/12"/>
-    </nodeMappings>
-    <nodeMappings key="tTGGNode">
-      <value href="instances/testTGG.xmi#//@rules.0/@nodes.0"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGNodeToContextHenshinNodeIsland" final="true">
-    <createdSrc href="instances/testTGG.xmi#//@rules.0/@nodes.4"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@mappings.2"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.2"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.2"/>
-    <createdCorr href="instances/corr_gen.xmi#/13"/>
-    <createdCorr href="instances/corr_gen.xmi#/14"/>
-    <nodeMappings key="mapping">
-      <value href="instances/trg_gen.xmi#//@units.0/@mappings.2"/>
-    </nodeMappings>
-    <nodeMappings key="hLHSNodeNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.2"/>
-    </nodeMappings>
-    <nodeMappings key="tggNodeToRHSHenshinNode">
-      <value href="instances/corr_gen.xmi#/13"/>
-    </nodeMappings>
-    <nodeMappings key="hRHSNodeNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.2"/>
-    </nodeMappings>
-    <nodeMappings key="tggNodeToLHSHenshinNode">
-      <value href="instances/corr_gen.xmi#/14"/>
-    </nodeMappings>
-    <nodeMappings key="tTGGNode">
-      <value href="instances/testTGG.xmi#//@rules.0/@nodes.4"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGEdgeToContextHenshinEdgeIsland" final="true">
-    <createdSrc href="instances/testTGG.xmi#//@rules.0/@edges.0"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@lhs/@edges.3"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs/@edges.3"/>
-    <createdCorr href="instances/corr_gen.xmi#/15"/>
-    <createdCorr href="instances/corr_gen.xmi#/16"/>
-    <nodeMappings key="rhsTggEdgeToHenshinEdge">
-      <value href="instances/corr_gen.xmi#/15"/>
-    </nodeMappings>
-    <nodeMappings key="hRhsEdge">
-      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@edges.3"/>
-    </nodeMappings>
-    <nodeMappings key="lhsTggEdgeToHenshinEdge">
-      <value href="instances/corr_gen.xmi#/16"/>
-    </nodeMappings>
-    <nodeMappings key="hLhsEdge">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@edges.3"/>
-    </nodeMappings>
-    <nodeMappings key="tTGGEdge">
-      <value href="instances/testTGG.xmi#//@rules.0/@edges.0"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGEdgeToContextHenshinEdgeIsland" final="true">
-    <createdSrc href="instances/testTGG.xmi#//@rules.0/@edges.2"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@lhs/@edges.1"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs/@edges.1"/>
-    <createdCorr href="instances/corr_gen.xmi#/17"/>
-    <createdCorr href="instances/corr_gen.xmi#/18"/>
-    <nodeMappings key="rhsTggEdgeToHenshinEdge">
-      <value href="instances/corr_gen.xmi#/17"/>
-    </nodeMappings>
-    <nodeMappings key="hRhsEdge">
-      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@edges.1"/>
-    </nodeMappings>
-    <nodeMappings key="lhsTggEdgeToHenshinEdge">
-      <value href="instances/corr_gen.xmi#/18"/>
-    </nodeMappings>
-    <nodeMappings key="hLhsEdge">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@edges.1"/>
-    </nodeMappings>
-    <nodeMappings key="tTGGEdge">
-      <value href="instances/testTGG.xmi#//@rules.0/@edges.2"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGEdgeToContextHenshinEdgeIsland" final="true">
-    <createdSrc href="instances/testTGG.xmi#//@rules.0/@edges.1"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@lhs/@edges.0"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs/@edges.0"/>
-    <createdCorr href="instances/corr_gen.xmi#/19"/>
-    <createdCorr href="instances/corr_gen.xmi#/20"/>
-    <nodeMappings key="rhsTggEdgeToHenshinEdge">
-      <value href="instances/corr_gen.xmi#/19"/>
-    </nodeMappings>
-    <nodeMappings key="hRhsEdge">
-      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@edges.0"/>
-    </nodeMappings>
-    <nodeMappings key="lhsTggEdgeToHenshinEdge">
-      <value href="instances/corr_gen.xmi#/20"/>
-    </nodeMappings>
-    <nodeMappings key="hLhsEdge">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@edges.0"/>
-    </nodeMappings>
-    <nodeMappings key="tTGGEdge">
-      <value href="instances/testTGG.xmi#//@rules.0/@edges.1"/>
+    <nodeMappings key="tAttributeInplace">
+      <value href="instances/testTGG.xmi#//@rules.0/@nodes.4/@attrExpr.0"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="TGGRuleToHenshinRuleIsland" final="true">
@@ -259,7 +137,7 @@
     <createdTrg href="instances/trg_gen.xmi#//@units.0"/>
     <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs"/>
     <createdTrg href="instances/trg_gen.xmi#//@units.0/@lhs"/>
-    <createdCorr href="instances/corr_gen.xmi#/21"/>
+    <createdCorr href="instances/corr_gen.xmi#/11"/>
     <nodeMappings key="hRule">
       <value href="instances/trg_gen.xmi#//@units.0"/>
     </nodeMappings>
@@ -267,7 +145,7 @@
       <value href="instances/trg_gen.xmi#//@units.0/@rhs"/>
     </nodeMappings>
     <nodeMappings key="tggRuleToHenshinRule">
-      <value href="instances/corr_gen.xmi#/21"/>
+      <value href="instances/corr_gen.xmi#/11"/>
     </nodeMappings>
     <nodeMappings key="hLhs">
       <value href="instances/trg_gen.xmi#//@units.0/@lhs"/>
@@ -290,68 +168,81 @@
       <value href="instances/trg_gen.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="tggToModule">
-      <value href="instances/corr_gen.xmi#/4"/>
+      <value href="instances/corr_gen.xmi#/8"/>
     </nodeMappings>
     <nodeMappings key="tggRuleToHenshinRule">
-      <value href="instances/corr_gen.xmi#/21"/>
+      <value href="instances/corr_gen.xmi#/11"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGNodeToContextHenshinNodeBridge" final="true">
-    <nodeMappings key="tTggRule">
-      <value href="instances/testTGG.xmi#//@rules.0"/>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGNodeToContextHenshinNodeIsland" final="true">
+    <createdSrc href="instances/testTGG.xmi#//@rules.0/@nodes.0"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@mappings.2"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.2"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.2"/>
+    <createdCorr href="instances/corr_gen.xmi#/12"/>
+    <createdCorr href="instances/corr_gen.xmi#/13"/>
+    <nodeMappings key="mapping">
+      <value href="instances/trg_gen.xmi#//@units.0/@mappings.2"/>
+    </nodeMappings>
+    <nodeMappings key="hLHSNodeNode">
+      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.2"/>
+    </nodeMappings>
+    <nodeMappings key="tggNodeToRHSHenshinNode">
+      <value href="instances/corr_gen.xmi#/12"/>
+    </nodeMappings>
+    <nodeMappings key="hRHSNodeNode">
+      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.2"/>
+    </nodeMappings>
+    <nodeMappings key="tggNodeToLHSHenshinNode">
+      <value href="instances/corr_gen.xmi#/13"/>
     </nodeMappings>
     <nodeMappings key="tTGGNode">
-      <value href="instances/testTGG.xmi#//@rules.0/@nodes.5"/>
+      <value href="instances/testTGG.xmi#//@rules.0/@nodes.0"/>
     </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGEdgeToContextHenshinEdgeIsland" final="true">
+    <createdSrc href="instances/testTGG.xmi#//@rules.0/@edges.2"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@lhs/@edges.3"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs/@edges.3"/>
+    <createdCorr href="instances/corr_gen.xmi#/14"/>
+    <createdCorr href="instances/corr_gen.xmi#/15"/>
+    <nodeMappings key="rhsTggEdgeToHenshinEdge">
+      <value href="instances/corr_gen.xmi#/14"/>
+    </nodeMappings>
+    <nodeMappings key="hRhsEdge">
+      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@edges.3"/>
+    </nodeMappings>
+    <nodeMappings key="lhsTggEdgeToHenshinEdge">
+      <value href="instances/corr_gen.xmi#/15"/>
+    </nodeMappings>
+    <nodeMappings key="hLhsEdge">
+      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@edges.3"/>
+    </nodeMappings>
+    <nodeMappings key="tTGGEdge">
+      <value href="instances/testTGG.xmi#//@rules.0/@edges.2"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGNodeToCreateHenshinNodeRulePlain" final="true">
+    <createdSrc href="instances/testTGG.xmi#//@rules.0/@nodes.2"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@mappings.0"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.0"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.0"/>
+    <createdCorr href="instances/corr_gen.xmi#/16"/>
+    <createdCorr href="instances/corr_gen.xmi#/17"/>
     <nodeMappings key="mapping">
       <value href="instances/trg_gen.xmi#//@units.0/@mappings.0"/>
     </nodeMappings>
     <nodeMappings key="hLHSNodeNode">
       <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.0"/>
     </nodeMappings>
-    <nodeMappings key="hRule">
-      <value href="instances/trg_gen.xmi#//@units.0"/>
+    <nodeMappings key="tggNodeToRHSHenshinNode">
+      <value href="instances/corr_gen.xmi#/16"/>
     </nodeMappings>
     <nodeMappings key="hRHSNodeNode">
       <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.0"/>
     </nodeMappings>
-    <nodeMappings key="lhs">
-      <value href="instances/trg_gen.xmi#//@units.0/@lhs"/>
-    </nodeMappings>
-    <nodeMappings key="rhs">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs"/>
-    </nodeMappings>
-    <nodeMappings key="tggNodeToRHSHenshinNode">
-      <value href="instances/corr_gen.xmi#/0"/>
-    </nodeMappings>
     <nodeMappings key="tggNodeToLHSHenshinNode">
-      <value href="instances/corr_gen.xmi#/1"/>
-    </nodeMappings>
-    <nodeMappings key="tggRuleToHenshinRule">
-      <value href="instances/corr_gen.xmi#/21"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGNodeToCreateHenshinNodeRulePlain" final="true">
-    <createdSrc href="instances/testTGG.xmi#//@rules.0/@nodes.2"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@mappings.1"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.1"/>
-    <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.1"/>
-    <createdCorr href="instances/corr_gen.xmi#/22"/>
-    <createdCorr href="instances/corr_gen.xmi#/23"/>
-    <nodeMappings key="mapping">
-      <value href="instances/trg_gen.xmi#//@units.0/@mappings.1"/>
-    </nodeMappings>
-    <nodeMappings key="hLHSNodeNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.1"/>
-    </nodeMappings>
-    <nodeMappings key="tggNodeToRHSHenshinNode">
-      <value href="instances/corr_gen.xmi#/22"/>
-    </nodeMappings>
-    <nodeMappings key="hRHSNodeNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.1"/>
-    </nodeMappings>
-    <nodeMappings key="tggNodeToLHSHenshinNode">
-      <value href="instances/corr_gen.xmi#/23"/>
+      <value href="instances/corr_gen.xmi#/17"/>
     </nodeMappings>
     <nodeMappings key="tTggRule">
       <value href="instances/testTGG.xmi#//@rules.0"/>
@@ -375,10 +266,10 @@
       <value href="instances/trg_gen.xmi#//@units.0/@rhs"/>
     </nodeMappings>
     <nodeMappings key="tggToModule">
-      <value href="instances/corr_gen.xmi#/4"/>
+      <value href="instances/corr_gen.xmi#/8"/>
     </nodeMappings>
     <nodeMappings key="tggRuleToHenshinRule">
-      <value href="instances/corr_gen.xmi#/21"/>
+      <value href="instances/corr_gen.xmi#/11"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGNodeToContextHenshinNodeBridge" final="true">
@@ -386,7 +277,64 @@
       <value href="instances/testTGG.xmi#//@rules.0"/>
     </nodeMappings>
     <nodeMappings key="tTGGNode">
-      <value href="instances/testTGG.xmi#//@rules.0/@nodes.4"/>
+      <value href="instances/testTGG.xmi#//@rules.0/@nodes.5"/>
+    </nodeMappings>
+    <nodeMappings key="mapping">
+      <value href="instances/trg_gen.xmi#//@units.0/@mappings.1"/>
+    </nodeMappings>
+    <nodeMappings key="hLHSNodeNode">
+      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.1"/>
+    </nodeMappings>
+    <nodeMappings key="hRule">
+      <value href="instances/trg_gen.xmi#//@units.0"/>
+    </nodeMappings>
+    <nodeMappings key="hRHSNodeNode">
+      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.1"/>
+    </nodeMappings>
+    <nodeMappings key="lhs">
+      <value href="instances/trg_gen.xmi#//@units.0/@lhs"/>
+    </nodeMappings>
+    <nodeMappings key="rhs">
+      <value href="instances/trg_gen.xmi#//@units.0/@rhs"/>
+    </nodeMappings>
+    <nodeMappings key="tggNodeToRHSHenshinNode">
+      <value href="instances/corr_gen.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="tggNodeToLHSHenshinNode">
+      <value href="instances/corr_gen.xmi#/1"/>
+    </nodeMappings>
+    <nodeMappings key="tggRuleToHenshinRule">
+      <value href="instances/corr_gen.xmi#/11"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGEdgeToContextHenshinEdgeIsland" final="true">
+    <createdSrc href="instances/testTGG.xmi#//@rules.0/@edges.0"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@lhs/@edges.0"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs/@edges.0"/>
+    <createdCorr href="instances/corr_gen.xmi#/18"/>
+    <createdCorr href="instances/corr_gen.xmi#/19"/>
+    <nodeMappings key="rhsTggEdgeToHenshinEdge">
+      <value href="instances/corr_gen.xmi#/18"/>
+    </nodeMappings>
+    <nodeMappings key="hRhsEdge">
+      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@edges.0"/>
+    </nodeMappings>
+    <nodeMappings key="lhsTggEdgeToHenshinEdge">
+      <value href="instances/corr_gen.xmi#/19"/>
+    </nodeMappings>
+    <nodeMappings key="hLhsEdge">
+      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@edges.0"/>
+    </nodeMappings>
+    <nodeMappings key="tTGGEdge">
+      <value href="instances/testTGG.xmi#//@rules.0/@edges.0"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGNodeToContextHenshinNodeBridge" final="true">
+    <nodeMappings key="tTggRule">
+      <value href="instances/testTGG.xmi#//@rules.0"/>
+    </nodeMappings>
+    <nodeMappings key="tTGGNode">
+      <value href="instances/testTGG.xmi#//@rules.0/@nodes.0"/>
     </nodeMappings>
     <nodeMappings key="mapping">
       <value href="instances/trg_gen.xmi#//@units.0/@mappings.2"/>
@@ -407,121 +355,113 @@
       <value href="instances/trg_gen.xmi#//@units.0/@rhs"/>
     </nodeMappings>
     <nodeMappings key="tggNodeToRHSHenshinNode">
-      <value href="instances/corr_gen.xmi#/13"/>
+      <value href="instances/corr_gen.xmi#/12"/>
     </nodeMappings>
     <nodeMappings key="tggNodeToLHSHenshinNode">
-      <value href="instances/corr_gen.xmi#/14"/>
+      <value href="instances/corr_gen.xmi#/13"/>
     </nodeMappings>
     <nodeMappings key="tggRuleToHenshinRule">
-      <value href="instances/corr_gen.xmi#/21"/>
+      <value href="instances/corr_gen.xmi#/11"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGNodeToContextHenshinNodeBridge" final="true">
-    <nodeMappings key="tTggRule">
-      <value href="instances/testTGG.xmi#//@rules.0"/>
-    </nodeMappings>
-    <nodeMappings key="tTGGNode">
-      <value href="instances/testTGG.xmi#//@rules.0/@nodes.0"/>
-    </nodeMappings>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGNodeToCreateHenshinNodeRulePlain" final="true">
+    <createdSrc href="instances/testTGG.xmi#//@rules.0/@nodes.4"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@mappings.3"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.3"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.3"/>
+    <createdCorr href="instances/corr_gen.xmi#/20"/>
+    <createdCorr href="instances/corr_gen.xmi#/21"/>
     <nodeMappings key="mapping">
       <value href="instances/trg_gen.xmi#//@units.0/@mappings.3"/>
     </nodeMappings>
     <nodeMappings key="hLHSNodeNode">
       <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.3"/>
     </nodeMappings>
-    <nodeMappings key="hRule">
-      <value href="instances/trg_gen.xmi#//@units.0"/>
+    <nodeMappings key="tggNodeToRHSHenshinNode">
+      <value href="instances/corr_gen.xmi#/20"/>
     </nodeMappings>
     <nodeMappings key="hRHSNodeNode">
       <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.3"/>
     </nodeMappings>
-    <nodeMappings key="lhs">
-      <value href="instances/trg_gen.xmi#//@units.0/@lhs"/>
-    </nodeMappings>
-    <nodeMappings key="rhs">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs"/>
-    </nodeMappings>
-    <nodeMappings key="tggNodeToRHSHenshinNode">
-      <value href="instances/corr_gen.xmi#/11"/>
-    </nodeMappings>
     <nodeMappings key="tggNodeToLHSHenshinNode">
-      <value href="instances/corr_gen.xmi#/12"/>
-    </nodeMappings>
-    <nodeMappings key="tggRuleToHenshinRule">
       <value href="instances/corr_gen.xmi#/21"/>
     </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="AttributeAssignmentToSetAttributeBridge" final="true">
-    <nodeMappings key="tNode">
-      <value href="instances/testTGG.xmi#//@rules.0/@nodes.4"/>
-    </nodeMappings>
-    <nodeMappings key="tAttributeInplace">
-      <value href="instances/testTGG.xmi#//@rules.0/@nodes.4/@attrExpr.0"/>
-    </nodeMappings>
-    <nodeMappings key="tRule">
+    <nodeMappings key="tTggRule">
       <value href="instances/testTGG.xmi#//@rules.0"/>
+    </nodeMappings>
+    <nodeMappings key="tTgg">
+      <value href="instances/testTGG.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="tTGGNode">
+      <value href="instances/testTGG.xmi#//@rules.0/@nodes.4"/>
     </nodeMappings>
     <nodeMappings key="hRule">
       <value href="instances/trg_gen.xmi#//@units.0"/>
     </nodeMappings>
-    <nodeMappings key="hNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.2"/>
+    <nodeMappings key="lhs">
+      <value href="instances/trg_gen.xmi#//@units.0/@lhs"/>
     </nodeMappings>
-    <nodeMappings key="hRhs">
+    <nodeMappings key="hModule">
+      <value href="instances/trg_gen.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="rhs">
       <value href="instances/trg_gen.xmi#//@units.0/@rhs"/>
     </nodeMappings>
-    <nodeMappings key="hParameter">
-      <value href="instances/trg_gen.xmi#//@units.0/@parameters.0"/>
+    <nodeMappings key="tggToModule">
+      <value href="instances/corr_gen.xmi#/8"/>
     </nodeMappings>
-    <nodeMappings key="hAttribute">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.2/@attributes.0"/>
-    </nodeMappings>
-    <nodeMappings key="tGGRuleToHenshinRule">
-      <value href="instances/corr_gen.xmi#/21"/>
-    </nodeMappings>
-    <nodeMappings key="tGGNodeToHenshinNode">
-      <value href="instances/corr_gen.xmi#/13"/>
-    </nodeMappings>
-    <nodeMappings key="tGGAttributeToHenshinAttribute">
-      <value href="instances/corr_gen.xmi#/2"/>
-    </nodeMappings>
-    <nodeMappings key="tggAttributeToHenshinParameter">
-      <value href="instances/corr_gen.xmi#/3"/>
+    <nodeMappings key="tggRuleToHenshinRule">
+      <value href="instances/corr_gen.xmi#/11"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGNodeToContextHenshinNodeBridge" final="true">
-    <nodeMappings key="tTggRule">
-      <value href="instances/testTGG.xmi#//@rules.0"/>
-    </nodeMappings>
-    <nodeMappings key="tTGGNode">
-      <value href="instances/testTGG.xmi#//@rules.0/@nodes.3"/>
-    </nodeMappings>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGNodeToCreateHenshinNodeRulePlain" final="true">
+    <createdSrc href="instances/testTGG.xmi#//@rules.0/@nodes.1"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@mappings.4"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.4"/>
+    <createdTrg href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.4"/>
+    <createdCorr href="instances/corr_gen.xmi#/22"/>
+    <createdCorr href="instances/corr_gen.xmi#/23"/>
     <nodeMappings key="mapping">
       <value href="instances/trg_gen.xmi#//@units.0/@mappings.4"/>
     </nodeMappings>
     <nodeMappings key="hLHSNodeNode">
       <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.4"/>
     </nodeMappings>
-    <nodeMappings key="hRule">
-      <value href="instances/trg_gen.xmi#//@units.0"/>
+    <nodeMappings key="tggNodeToRHSHenshinNode">
+      <value href="instances/corr_gen.xmi#/22"/>
     </nodeMappings>
     <nodeMappings key="hRHSNodeNode">
       <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.4"/>
     </nodeMappings>
+    <nodeMappings key="tggNodeToLHSHenshinNode">
+      <value href="instances/corr_gen.xmi#/23"/>
+    </nodeMappings>
+    <nodeMappings key="tTggRule">
+      <value href="instances/testTGG.xmi#//@rules.0"/>
+    </nodeMappings>
+    <nodeMappings key="tTgg">
+      <value href="instances/testTGG.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings key="tTGGNode">
+      <value href="instances/testTGG.xmi#//@rules.0/@nodes.1"/>
+    </nodeMappings>
+    <nodeMappings key="hRule">
+      <value href="instances/trg_gen.xmi#//@units.0"/>
+    </nodeMappings>
     <nodeMappings key="lhs">
       <value href="instances/trg_gen.xmi#//@units.0/@lhs"/>
+    </nodeMappings>
+    <nodeMappings key="hModule">
+      <value href="instances/trg_gen.xmi#/"/>
     </nodeMappings>
     <nodeMappings key="rhs">
       <value href="instances/trg_gen.xmi#//@units.0/@rhs"/>
     </nodeMappings>
-    <nodeMappings key="tggNodeToRHSHenshinNode">
-      <value href="instances/corr_gen.xmi#/9"/>
-    </nodeMappings>
-    <nodeMappings key="tggNodeToLHSHenshinNode">
-      <value href="instances/corr_gen.xmi#/10"/>
+    <nodeMappings key="tggToModule">
+      <value href="instances/corr_gen.xmi#/8"/>
     </nodeMappings>
     <nodeMappings key="tggRuleToHenshinRule">
-      <value href="instances/corr_gen.xmi#/21"/>
+      <value href="instances/corr_gen.xmi#/11"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGEdgeToContextHenshinEdgeBridge" final="true">
@@ -529,13 +469,13 @@
       <value href="instances/testTGG.xmi#//@rules.0"/>
     </nodeMappings>
     <nodeMappings key="tTGGEdge">
-      <value href="instances/testTGG.xmi#//@rules.0/@edges.1"/>
+      <value href="instances/testTGG.xmi#//@rules.0/@edges.0"/>
     </nodeMappings>
     <nodeMappings key="tSrcTGGNode">
-      <value href="instances/testTGG.xmi#//@rules.0/@nodes.2"/>
+      <value href="instances/testTGG.xmi#//@rules.0/@nodes.0"/>
     </nodeMappings>
     <nodeMappings key="tTrgTGGNode">
-      <value href="instances/testTGG.xmi#//@rules.0/@nodes.3"/>
+      <value href="instances/testTGG.xmi#//@rules.0/@nodes.1"/>
     </nodeMappings>
     <nodeMappings key="hRhsTrgNode">
       <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.4"/>
@@ -553,10 +493,10 @@
       <value href="instances/trg_gen.xmi#//@units.0/@lhs"/>
     </nodeMappings>
     <nodeMappings key="hLhsSrcNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.1"/>
+      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.2"/>
     </nodeMappings>
     <nodeMappings key="hRhsSrcNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.1"/>
+      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.2"/>
     </nodeMappings>
     <nodeMappings key="rhs">
       <value href="instances/trg_gen.xmi#//@units.0/@rhs"/>
@@ -565,149 +505,63 @@
       <value href="instances/trg_gen.xmi#//@units.0/@lhs/@edges.0"/>
     </nodeMappings>
     <nodeMappings key="rhsTggEdgeToHenshinEdge">
-      <value href="instances/corr_gen.xmi#/20"/>
-    </nodeMappings>
-    <nodeMappings key="lhsTggSrcNodeToHenshinNode">
-      <value href="instances/corr_gen.xmi#/23"/>
-    </nodeMappings>
-    <nodeMappings key="rhsTggSrcNodeToHenshinNode">
-      <value href="instances/corr_gen.xmi#/22"/>
-    </nodeMappings>
-    <nodeMappings key="lhsTggEdgeToHenshinEdge">
       <value href="instances/corr_gen.xmi#/19"/>
     </nodeMappings>
-    <nodeMappings key="rhsTggTrgNodeToHenshinNode">
-      <value href="instances/corr_gen.xmi#/9"/>
-    </nodeMappings>
-    <nodeMappings key="tggRuleToHenshinRule">
-      <value href="instances/corr_gen.xmi#/21"/>
-    </nodeMappings>
-    <nodeMappings key="lhsTggTrgNodeToHenshinNode">
-      <value href="instances/corr_gen.xmi#/10"/>
-    </nodeMappings>
-  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGEdgeToContextHenshinEdgeBridge" final="true">
-    <nodeMappings key="tTggRule">
-      <value href="instances/testTGG.xmi#//@rules.0"/>
-    </nodeMappings>
-    <nodeMappings key="tTGGEdge">
-      <value href="instances/testTGG.xmi#//@rules.0/@edges.2"/>
-    </nodeMappings>
-    <nodeMappings key="tSrcTGGNode">
-      <value href="instances/testTGG.xmi#//@rules.0/@nodes.3"/>
-    </nodeMappings>
-    <nodeMappings key="tTrgTGGNode">
-      <value href="instances/testTGG.xmi#//@rules.0/@nodes.4"/>
-    </nodeMappings>
-    <nodeMappings key="hRhsTrgNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.2"/>
-    </nodeMappings>
-    <nodeMappings key="hLhsTrgNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.2"/>
-    </nodeMappings>
-    <nodeMappings key="hRule">
-      <value href="instances/trg_gen.xmi#//@units.0"/>
-    </nodeMappings>
-    <nodeMappings key="hRhsEdge">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@edges.1"/>
-    </nodeMappings>
-    <nodeMappings key="lhs">
-      <value href="instances/trg_gen.xmi#//@units.0/@lhs"/>
-    </nodeMappings>
-    <nodeMappings key="hLhsSrcNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.4"/>
-    </nodeMappings>
-    <nodeMappings key="hRhsSrcNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.4"/>
-    </nodeMappings>
-    <nodeMappings key="rhs">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs"/>
-    </nodeMappings>
-    <nodeMappings key="hLhsEdge">
-      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@edges.1"/>
-    </nodeMappings>
-    <nodeMappings key="rhsTggEdgeToHenshinEdge">
-      <value href="instances/corr_gen.xmi#/18"/>
-    </nodeMappings>
     <nodeMappings key="lhsTggSrcNodeToHenshinNode">
-      <value href="instances/corr_gen.xmi#/10"/>
-    </nodeMappings>
-    <nodeMappings key="rhsTggSrcNodeToHenshinNode">
-      <value href="instances/corr_gen.xmi#/9"/>
-    </nodeMappings>
-    <nodeMappings key="lhsTggEdgeToHenshinEdge">
-      <value href="instances/corr_gen.xmi#/17"/>
-    </nodeMappings>
-    <nodeMappings key="rhsTggTrgNodeToHenshinNode">
       <value href="instances/corr_gen.xmi#/13"/>
     </nodeMappings>
+    <nodeMappings key="rhsTggSrcNodeToHenshinNode">
+      <value href="instances/corr_gen.xmi#/12"/>
+    </nodeMappings>
+    <nodeMappings key="lhsTggEdgeToHenshinEdge">
+      <value href="instances/corr_gen.xmi#/18"/>
+    </nodeMappings>
+    <nodeMappings key="rhsTggTrgNodeToHenshinNode">
+      <value href="instances/corr_gen.xmi#/22"/>
+    </nodeMappings>
     <nodeMappings key="tggRuleToHenshinRule">
-      <value href="instances/corr_gen.xmi#/21"/>
+      <value href="instances/corr_gen.xmi#/11"/>
     </nodeMappings>
     <nodeMappings key="lhsTggTrgNodeToHenshinNode">
-      <value href="instances/corr_gen.xmi#/14"/>
+      <value href="instances/corr_gen.xmi#/23"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
-  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGEdgeToContextHenshinEdgeBridge" final="true">
-    <nodeMappings key="tTggRule">
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="AttributeAssignmentToSetAttributeBridge" final="true">
+    <nodeMappings key="tNode">
+      <value href="instances/testTGG.xmi#//@rules.0/@nodes.4"/>
+    </nodeMappings>
+    <nodeMappings key="tAttributeInplace">
+      <value href="instances/testTGG.xmi#//@rules.0/@nodes.4/@attrExpr.0"/>
+    </nodeMappings>
+    <nodeMappings key="tRule">
       <value href="instances/testTGG.xmi#//@rules.0"/>
-    </nodeMappings>
-    <nodeMappings key="tTGGEdge">
-      <value href="instances/testTGG.xmi#//@rules.0/@edges.3"/>
-    </nodeMappings>
-    <nodeMappings key="tSrcTGGNode">
-      <value href="instances/testTGG.xmi#//@rules.0/@nodes.3"/>
-    </nodeMappings>
-    <nodeMappings key="tTrgTGGNode">
-      <value href="instances/testTGG.xmi#//@rules.0/@nodes.5"/>
-    </nodeMappings>
-    <nodeMappings key="hRhsTrgNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.0"/>
-    </nodeMappings>
-    <nodeMappings key="hLhsTrgNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.0"/>
     </nodeMappings>
     <nodeMappings key="hRule">
       <value href="instances/trg_gen.xmi#//@units.0"/>
     </nodeMappings>
-    <nodeMappings key="hRhsEdge">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@edges.2"/>
+    <nodeMappings key="hNode">
+      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.3"/>
     </nodeMappings>
-    <nodeMappings key="lhs">
-      <value href="instances/trg_gen.xmi#//@units.0/@lhs"/>
-    </nodeMappings>
-    <nodeMappings key="hLhsSrcNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.4"/>
-    </nodeMappings>
-    <nodeMappings key="hRhsSrcNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.4"/>
-    </nodeMappings>
-    <nodeMappings key="rhs">
+    <nodeMappings key="hRhs">
       <value href="instances/trg_gen.xmi#//@units.0/@rhs"/>
     </nodeMappings>
-    <nodeMappings key="hLhsEdge">
-      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@edges.2"/>
+    <nodeMappings key="hParameter">
+      <value href="instances/trg_gen.xmi#//@units.0/@parameters.0"/>
     </nodeMappings>
-    <nodeMappings key="rhsTggEdgeToHenshinEdge">
-      <value href="instances/corr_gen.xmi#/6"/>
+    <nodeMappings key="hAttribute">
+      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.3/@attributes.0"/>
     </nodeMappings>
-    <nodeMappings key="lhsTggSrcNodeToHenshinNode">
-      <value href="instances/corr_gen.xmi#/10"/>
+    <nodeMappings key="tGGRuleToHenshinRule">
+      <value href="instances/corr_gen.xmi#/11"/>
     </nodeMappings>
-    <nodeMappings key="rhsTggSrcNodeToHenshinNode">
+    <nodeMappings key="tGGNodeToHenshinNode">
+      <value href="instances/corr_gen.xmi#/20"/>
+    </nodeMappings>
+    <nodeMappings key="tGGAttributeToHenshinAttribute">
       <value href="instances/corr_gen.xmi#/9"/>
     </nodeMappings>
-    <nodeMappings key="lhsTggEdgeToHenshinEdge">
-      <value href="instances/corr_gen.xmi#/5"/>
-    </nodeMappings>
-    <nodeMappings key="rhsTggTrgNodeToHenshinNode">
-      <value href="instances/corr_gen.xmi#/0"/>
-    </nodeMappings>
-    <nodeMappings key="tggRuleToHenshinRule">
-      <value href="instances/corr_gen.xmi#/21"/>
-    </nodeMappings>
-    <nodeMappings key="lhsTggTrgNodeToHenshinNode">
-      <value href="instances/corr_gen.xmi#/1"/>
+    <nodeMappings key="tggAttributeToHenshinParameter">
+      <value href="instances/corr_gen.xmi#/10"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGNodeToContextHenshinNodeBridge" final="true">
@@ -715,7 +569,7 @@
       <value href="instances/testTGG.xmi#//@rules.0"/>
     </nodeMappings>
     <nodeMappings key="tTGGNode">
-      <value href="instances/testTGG.xmi#//@rules.0/@nodes.1"/>
+      <value href="instances/testTGG.xmi#//@rules.0/@nodes.3"/>
     </nodeMappings>
     <nodeMappings key="mapping">
       <value href="instances/trg_gen.xmi#//@units.0/@mappings.5"/>
@@ -736,13 +590,13 @@
       <value href="instances/trg_gen.xmi#//@units.0/@rhs"/>
     </nodeMappings>
     <nodeMappings key="tggNodeToRHSHenshinNode">
-      <value href="instances/corr_gen.xmi#/7"/>
+      <value href="instances/corr_gen.xmi#/2"/>
     </nodeMappings>
     <nodeMappings key="tggNodeToLHSHenshinNode">
-      <value href="instances/corr_gen.xmi#/8"/>
+      <value href="instances/corr_gen.xmi#/3"/>
     </nodeMappings>
     <nodeMappings key="tggRuleToHenshinRule">
-      <value href="instances/corr_gen.xmi#/21"/>
+      <value href="instances/corr_gen.xmi#/11"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
   <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGEdgeToContextHenshinEdgeBridge" final="true">
@@ -750,13 +604,75 @@
       <value href="instances/testTGG.xmi#//@rules.0"/>
     </nodeMappings>
     <nodeMappings key="tTGGEdge">
-      <value href="instances/testTGG.xmi#//@rules.0/@edges.0"/>
+      <value href="instances/testTGG.xmi#//@rules.0/@edges.3"/>
     </nodeMappings>
     <nodeMappings key="tSrcTGGNode">
-      <value href="instances/testTGG.xmi#//@rules.0/@nodes.0"/>
+      <value href="instances/testTGG.xmi#//@rules.0/@nodes.3"/>
     </nodeMappings>
     <nodeMappings key="tTrgTGGNode">
-      <value href="instances/testTGG.xmi#//@rules.0/@nodes.1"/>
+      <value href="instances/testTGG.xmi#//@rules.0/@nodes.5"/>
+    </nodeMappings>
+    <nodeMappings key="hRhsTrgNode">
+      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.1"/>
+    </nodeMappings>
+    <nodeMappings key="hLhsTrgNode">
+      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.1"/>
+    </nodeMappings>
+    <nodeMappings key="hRule">
+      <value href="instances/trg_gen.xmi#//@units.0"/>
+    </nodeMappings>
+    <nodeMappings key="hRhsEdge">
+      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@edges.1"/>
+    </nodeMappings>
+    <nodeMappings key="lhs">
+      <value href="instances/trg_gen.xmi#//@units.0/@lhs"/>
+    </nodeMappings>
+    <nodeMappings key="hLhsSrcNode">
+      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.5"/>
+    </nodeMappings>
+    <nodeMappings key="hRhsSrcNode">
+      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.5"/>
+    </nodeMappings>
+    <nodeMappings key="rhs">
+      <value href="instances/trg_gen.xmi#//@units.0/@rhs"/>
+    </nodeMappings>
+    <nodeMappings key="hLhsEdge">
+      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@edges.1"/>
+    </nodeMappings>
+    <nodeMappings key="rhsTggEdgeToHenshinEdge">
+      <value href="instances/corr_gen.xmi#/5"/>
+    </nodeMappings>
+    <nodeMappings key="lhsTggSrcNodeToHenshinNode">
+      <value href="instances/corr_gen.xmi#/3"/>
+    </nodeMappings>
+    <nodeMappings key="rhsTggSrcNodeToHenshinNode">
+      <value href="instances/corr_gen.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="lhsTggEdgeToHenshinEdge">
+      <value href="instances/corr_gen.xmi#/4"/>
+    </nodeMappings>
+    <nodeMappings key="rhsTggTrgNodeToHenshinNode">
+      <value href="instances/corr_gen.xmi#/0"/>
+    </nodeMappings>
+    <nodeMappings key="tggRuleToHenshinRule">
+      <value href="instances/corr_gen.xmi#/11"/>
+    </nodeMappings>
+    <nodeMappings key="lhsTggTrgNodeToHenshinNode">
+      <value href="instances/corr_gen.xmi#/1"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGEdgeToContextHenshinEdgeBridge" final="true">
+    <nodeMappings key="tTggRule">
+      <value href="instances/testTGG.xmi#//@rules.0"/>
+    </nodeMappings>
+    <nodeMappings key="tTGGEdge">
+      <value href="instances/testTGG.xmi#//@rules.0/@edges.1"/>
+    </nodeMappings>
+    <nodeMappings key="tSrcTGGNode">
+      <value href="instances/testTGG.xmi#//@rules.0/@nodes.2"/>
+    </nodeMappings>
+    <nodeMappings key="tTrgTGGNode">
+      <value href="instances/testTGG.xmi#//@rules.0/@nodes.3"/>
     </nodeMappings>
     <nodeMappings key="hRhsTrgNode">
       <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.5"/>
@@ -768,16 +684,78 @@
       <value href="instances/trg_gen.xmi#//@units.0"/>
     </nodeMappings>
     <nodeMappings key="hRhsEdge">
+      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@edges.2"/>
+    </nodeMappings>
+    <nodeMappings key="lhs">
+      <value href="instances/trg_gen.xmi#//@units.0/@lhs"/>
+    </nodeMappings>
+    <nodeMappings key="hLhsSrcNode">
+      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.0"/>
+    </nodeMappings>
+    <nodeMappings key="hRhsSrcNode">
+      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.0"/>
+    </nodeMappings>
+    <nodeMappings key="rhs">
+      <value href="instances/trg_gen.xmi#//@units.0/@rhs"/>
+    </nodeMappings>
+    <nodeMappings key="hLhsEdge">
+      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@edges.2"/>
+    </nodeMappings>
+    <nodeMappings key="rhsTggEdgeToHenshinEdge">
+      <value href="instances/corr_gen.xmi#/7"/>
+    </nodeMappings>
+    <nodeMappings key="lhsTggSrcNodeToHenshinNode">
+      <value href="instances/corr_gen.xmi#/17"/>
+    </nodeMappings>
+    <nodeMappings key="rhsTggSrcNodeToHenshinNode">
+      <value href="instances/corr_gen.xmi#/16"/>
+    </nodeMappings>
+    <nodeMappings key="lhsTggEdgeToHenshinEdge">
+      <value href="instances/corr_gen.xmi#/6"/>
+    </nodeMappings>
+    <nodeMappings key="rhsTggTrgNodeToHenshinNode">
+      <value href="instances/corr_gen.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="tggRuleToHenshinRule">
+      <value href="instances/corr_gen.xmi#/11"/>
+    </nodeMappings>
+    <nodeMappings key="lhsTggTrgNodeToHenshinNode">
+      <value href="instances/corr_gen.xmi#/3"/>
+    </nodeMappings>
+  </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
+  <org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication name="ContextTGGEdgeToContextHenshinEdgeBridge" final="true">
+    <nodeMappings key="tTggRule">
+      <value href="instances/testTGG.xmi#//@rules.0"/>
+    </nodeMappings>
+    <nodeMappings key="tTGGEdge">
+      <value href="instances/testTGG.xmi#//@rules.0/@edges.2"/>
+    </nodeMappings>
+    <nodeMappings key="tSrcTGGNode">
+      <value href="instances/testTGG.xmi#//@rules.0/@nodes.3"/>
+    </nodeMappings>
+    <nodeMappings key="tTrgTGGNode">
+      <value href="instances/testTGG.xmi#//@rules.0/@nodes.4"/>
+    </nodeMappings>
+    <nodeMappings key="hRhsTrgNode">
+      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.3"/>
+    </nodeMappings>
+    <nodeMappings key="hLhsTrgNode">
+      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.3"/>
+    </nodeMappings>
+    <nodeMappings key="hRule">
+      <value href="instances/trg_gen.xmi#//@units.0"/>
+    </nodeMappings>
+    <nodeMappings key="hRhsEdge">
       <value href="instances/trg_gen.xmi#//@units.0/@rhs/@edges.3"/>
     </nodeMappings>
     <nodeMappings key="lhs">
       <value href="instances/trg_gen.xmi#//@units.0/@lhs"/>
     </nodeMappings>
     <nodeMappings key="hLhsSrcNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.3"/>
+      <value href="instances/trg_gen.xmi#//@units.0/@lhs/@nodes.5"/>
     </nodeMappings>
     <nodeMappings key="hRhsSrcNode">
-      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.3"/>
+      <value href="instances/trg_gen.xmi#//@units.0/@rhs/@nodes.5"/>
     </nodeMappings>
     <nodeMappings key="rhs">
       <value href="instances/trg_gen.xmi#//@units.0/@rhs"/>
@@ -786,25 +764,25 @@
       <value href="instances/trg_gen.xmi#//@units.0/@lhs/@edges.3"/>
     </nodeMappings>
     <nodeMappings key="rhsTggEdgeToHenshinEdge">
-      <value href="instances/corr_gen.xmi#/16"/>
-    </nodeMappings>
-    <nodeMappings key="lhsTggSrcNodeToHenshinNode">
-      <value href="instances/corr_gen.xmi#/12"/>
-    </nodeMappings>
-    <nodeMappings key="rhsTggSrcNodeToHenshinNode">
-      <value href="instances/corr_gen.xmi#/11"/>
-    </nodeMappings>
-    <nodeMappings key="lhsTggEdgeToHenshinEdge">
       <value href="instances/corr_gen.xmi#/15"/>
     </nodeMappings>
+    <nodeMappings key="lhsTggSrcNodeToHenshinNode">
+      <value href="instances/corr_gen.xmi#/3"/>
+    </nodeMappings>
+    <nodeMappings key="rhsTggSrcNodeToHenshinNode">
+      <value href="instances/corr_gen.xmi#/2"/>
+    </nodeMappings>
+    <nodeMappings key="lhsTggEdgeToHenshinEdge">
+      <value href="instances/corr_gen.xmi#/14"/>
+    </nodeMappings>
     <nodeMappings key="rhsTggTrgNodeToHenshinNode">
-      <value href="instances/corr_gen.xmi#/7"/>
+      <value href="instances/corr_gen.xmi#/20"/>
     </nodeMappings>
     <nodeMappings key="tggRuleToHenshinRule">
-      <value href="instances/corr_gen.xmi#/21"/>
+      <value href="instances/corr_gen.xmi#/11"/>
     </nodeMappings>
     <nodeMappings key="lhsTggTrgNodeToHenshinNode">
-      <value href="instances/corr_gen.xmi#/8"/>
+      <value href="instances/corr_gen.xmi#/21"/>
     </nodeMappings>
   </org.emoflon.ibex.tgg.core.runtime:TGGRuleApplication>
 </xmi:XMI>

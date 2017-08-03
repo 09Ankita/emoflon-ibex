@@ -5,11 +5,16 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.henshin.model.Edge;
 import org.emoflon.ibex.tgg.operational.util.ManipulationUtil;
+import org.emoflon.moflontohenshin.MoflonToHenshinConfigurator;
 
 import language.TGGRuleEdge;
 import language.TGGRuleNode;
 
 public class TGGEdgeToHenshinEdgeCorrCreationRule extends CorrCreationRule {
+
+	public TGGEdgeToHenshinEdgeCorrCreationRule(MoflonToHenshinConfigurator moflonToHenshinConfigurator) {
+		super(moflonToHenshinConfigurator);
+	}
 
 	@Override
 	public boolean needsForcedCreation(TGGRuleNode node, EObject src, EObject trg, Resource corrR) {

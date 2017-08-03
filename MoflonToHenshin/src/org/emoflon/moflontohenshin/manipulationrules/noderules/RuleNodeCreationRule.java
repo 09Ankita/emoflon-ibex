@@ -3,15 +3,15 @@ package org.emoflon.moflontohenshin.manipulationrules.noderules;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.henshin.model.HenshinFactory;
 import org.eclipse.emf.henshin.model.Rule;
+import org.emoflon.moflontohenshin.MoflonToHenshinConfigurator;
 
 import language.TGGRuleNode;
 
 public class RuleNodeCreationRule extends NodeCreationRule {
 
 
-
-	public RuleNodeCreationRule() {
-		super(HenshinFactory.eINSTANCE.createRule().eClass());
+	public RuleNodeCreationRule( MoflonToHenshinConfigurator moflonToHenshinConfigurator) {
+		super(HenshinFactory.eINSTANCE.createRule().eClass(), moflonToHenshinConfigurator);
 	}
 
 	@Override

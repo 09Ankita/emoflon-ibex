@@ -5,11 +5,17 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.henshin.model.Attribute;
 import org.emoflon.ibex.tgg.operational.util.ManipulationUtil;
+import org.emoflon.moflontohenshin.MoflonToHenshinConfigurator;
 
 import language.TGGRuleNode;
 import language.inplaceAttributes.TGGInplaceAttributeExpression;
 
 public class TGGInplaceAttributeExpressionToHenshinAttributeRule extends TGGInplaceAttributeExpressionAbstractRule{
+
+	public TGGInplaceAttributeExpressionToHenshinAttributeRule(
+			MoflonToHenshinConfigurator moflonToHenshinConfigurator) {
+		super(moflonToHenshinConfigurator);
+	}
 
 	@Override
 	public EObject forceCreation(TGGRuleNode node, EObject src, EObject trg, Resource corrR) {

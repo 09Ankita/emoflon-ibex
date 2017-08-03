@@ -2,17 +2,19 @@ package org.emoflon.moflontohenshin.manipulationrules.noderules;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.emoflon.moflontohenshin.ManipulationHelper;
+import org.emoflon.moflontohenshin.MoflonToHenshinConfigurator;
+import org.emoflon.moflontohenshin.manipulationrules.AbstractManipulationRule;
 
 import language.TGGRuleNode;
 
-public abstract class NodeCreationRule {
+public abstract class NodeCreationRule extends AbstractManipulationRule{
 	
 	private EClass contextEClass;
 	
-	public NodeCreationRule(EClass context){
+	public NodeCreationRule(EClass context, MoflonToHenshinConfigurator moflonToHenshinConfigurator){
+		super(moflonToHenshinConfigurator);
 		contextEClass = context;
-		ManipulationHelper.addNodeCreationRule(this);
+		this.moflonToHenshinConfigurator.getManipulationHelper().addNodeCreationRule(this);
 	}
 	
 	public boolean needsForcedCreation(TGGRuleNode node){

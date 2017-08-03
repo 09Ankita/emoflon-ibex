@@ -1,4 +1,4 @@
-package org.emoflon.moflontohenshin;
+package org.emoflon.moflontohenshin.utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,19 +19,19 @@ import language.TGGRuleNode;
 
 public class ManipulationHelper {
 
-	private static List<NodeCreationRule> nodeCreationRules = new ArrayList<>();
-	private static List<EdgeCreationRule> edgeCreationRules = new ArrayList<>();
-	private static List<CorrCreationRule> corrCreationRules = new ArrayList<>();
+	private  List<NodeCreationRule> nodeCreationRules = new ArrayList<>();
+	private  List<EdgeCreationRule> edgeCreationRules = new ArrayList<>();
+	private  List<CorrCreationRule> corrCreationRules = new ArrayList<>();
 	
-	public static void addNodeCreationRule(NodeCreationRule rule){
+	public void addNodeCreationRule(NodeCreationRule rule){
 		nodeCreationRules.add(rule);
 	}
 	
-	public static void addEdgeCreationRule(EdgeCreationRule rule){
+	public void addEdgeCreationRule(EdgeCreationRule rule){
 		edgeCreationRules.add(rule);
 	}
 	
-	public static void addCorrCreationRule(CorrCreationRule rule){
+	public void addCorrCreationRule(CorrCreationRule rule){
 		corrCreationRules.add(rule);
 	}
 	

@@ -6,10 +6,15 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.henshin.model.Node;
 import org.emoflon.ibex.tgg.operational.util.ManipulationUtil;
+import org.emoflon.moflontohenshin.MoflonToHenshinConfigurator;
 
 import language.TGGRuleNode;
 
 public class TGGNodeToHenshinNodeCorrCreationRule extends CorrCreationRule {
+
+	public TGGNodeToHenshinNodeCorrCreationRule(MoflonToHenshinConfigurator moflonToHenshinConfigurator) {
+		super(moflonToHenshinConfigurator);
+	}
 
 	@Override
 	public boolean needsForcedCreation(TGGRuleNode node, EObject src, EObject trg, Resource corrR) {

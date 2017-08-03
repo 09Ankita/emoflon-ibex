@@ -7,11 +7,16 @@ import java.util.function.Consumer;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.emoflon.moflontohenshin.MoflonToHenshinConfigurator;
 
 import language.TGGRuleNode;
 import language.inplaceAttributes.TGGInplaceAttributeExpression;
 
 public abstract class TGGInplaceAttributeExpressionAbstractRule extends CorrCreationRule{
+
+	public TGGInplaceAttributeExpressionAbstractRule(MoflonToHenshinConfigurator moflonToHenshinConfigurator) {
+		super(moflonToHenshinConfigurator);
+	}
 
 	private static Map<TGGInplaceAttributeExpression, String> nameMapper = new HashMap<>();
 	
