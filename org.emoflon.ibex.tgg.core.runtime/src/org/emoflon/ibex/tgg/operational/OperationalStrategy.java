@@ -75,8 +75,6 @@ public abstract class OperationalStrategy {
 	
 	protected String pluginID;
 	final protected boolean isManipulated;
-	
-	final protected ManipulationUtil manipulationUtil;
 
 	public OperationalStrategy(String projectPath, String workspacePath, boolean flatten, boolean debug) {
 		this(projectPath, workspacePath, flatten, debug, new NextMatchUpdatePolicy());
@@ -97,7 +95,6 @@ public abstract class OperationalStrategy {
 		options.projectPath(projectPath);
 		this.pluginID = pluginID;
 		this.isManipulated = pluginID != null;
-		this.manipulationUtil = new ManipulationUtil();
 		this.updatePolicy = policy;
 	}
 
@@ -281,21 +278,21 @@ public abstract class OperationalStrategy {
 		HashMap<String, EObject> comatch = new HashMap<>();
 
 		if (manipulateSrc()) {
-			manipulationUtil.createNonCorrNodes(match, comatch, ruleInfos.getGreenSrcNodes(ruleName), s, isManipulated, pluginID);
+			ManipulationUtil.getInstance().createNonCorrNodes(match, comatch, ruleInfos.getGreenSrcNodes(ruleName), s, isManipulated, pluginID);
 		}
-		Collection<RuntimeEdge> srcEdges = manipulationUtil.createEdges(match, comatch,
+		Collection<RuntimeEdge> srcEdges = ManipulationUtil.getInstance().createEdges(match, comatch,
 				ruleInfos.getGreenSrcEdges(ruleName), manipulateSrc(), isManipulated, pluginID);
 
 		if (manipulateTrg()) {
-			manipulationUtil.createNonCorrNodes(match, comatch, ruleInfos.getGreenTrgNodes(ruleName), t, isManipulated, pluginID);
+			ManipulationUtil.getInstance().createNonCorrNodes(match, comatch, ruleInfos.getGreenTrgNodes(ruleName), t, isManipulated, pluginID);
 		}
-		Collection<RuntimeEdge> trgEdges = manipulationUtil.createEdges(match, comatch,
+		Collection<RuntimeEdge> trgEdges = ManipulationUtil.getInstance().createEdges(match, comatch,
 				ruleInfos.getGreenTrgEdges(ruleName), manipulateTrg(), isManipulated, pluginID);
 
 		Collection<Pair<TGGAttributeExpression, Object>> cspValues = cspContainer.getBoundAttributeExpValues();
 		applyCSPValues(comatch, cspValues);
 
-		manipulationUtil.createCorrs(match, comatch, ruleInfos.getGreenCorrNodes(ruleName), c, isManipulated, pluginID);
+		ManipulationUtil.getInstance().createCorrs(match, comatch, ruleInfos.getGreenCorrNodes(ruleName), c, isManipulated, pluginID);
 
 		markedEdges.addAll(srcEdges);
 		markedEdges.addAll(trgEdges);
@@ -342,7 +339,7 @@ public abstract class OperationalStrategy {
 			EStructuralFeature feature, HashMap<String, EObject> createdElements, IMatch match) {
 		ruleInfos.forEach(e -> {
 			((EList) protocol.eGet(feature))
-					.add(manipulationUtil.getVariableByName(e.getName(), createdElements, match));
+					.add(ManipulationUtil.getInstance().getVariableByName(e.getName(), createdElements, match));
 		});
 	}
 
@@ -474,7 +471,7 @@ public abstract class OperationalStrategy {
 			RuntimeEdge runtimeEdge = getRuntimeEdge(match, se);
 			markedEdges.remove(runtimeEdge);
 			if (delete)
-				manipulationUtil.deleteEdge(runtimeEdge.getSrc(), runtimeEdge.getTrg(), runtimeEdge.getRef());
+				ManipulationUtil.getInstance().deleteEdge(runtimeEdge.getSrc(), runtimeEdge.getTrg(), runtimeEdge.getRef());
 		});
 	}
 
@@ -486,7 +483,7 @@ public abstract class OperationalStrategy {
 
 	private void revokeNodes(Collection<EObject> nodes, boolean delete) {
 		if (delete)
-			manipulationUtil.deleteNodes(new THashSet<>(nodes));
+			ManipulationUtil.getInstance().deleteNodes(new THashSet<>(nodes));
 	}
 
 	private RuntimeEdge getRuntimeEdge(IMatch match, TGGRuleEdge specificationEdge) {

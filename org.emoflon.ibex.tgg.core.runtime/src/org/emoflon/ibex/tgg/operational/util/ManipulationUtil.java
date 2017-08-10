@@ -34,6 +34,8 @@ import language.inplaceAttributes.TGGInplaceAttributeExpression;
  */
 public class ManipulationUtil {
 
+	private static ManipulationUtil instance;
+	
 	/**
 	 * Container for all CorrCreationFunctions which are changed for a specific plug-in
 	 */
@@ -43,10 +45,16 @@ public class ManipulationUtil {
 	
 	private Map<String, Function<EObject, Function<EObject, Consumer<EReference>>>> edgeCreations;
 	
-	public ManipulationUtil() {
+	private ManipulationUtil() {
 		this.manipulatedCorrCreations = new HashMap<>();
 		this.nodeCreations = new HashMap<>();
 		this.edgeCreations = new HashMap<>();
+	}
+	
+	public static ManipulationUtil getInstance(){
+		if(instance == null)
+			instance = new ManipulationUtil();
+		return instance;
 	}
 	
 	/**
