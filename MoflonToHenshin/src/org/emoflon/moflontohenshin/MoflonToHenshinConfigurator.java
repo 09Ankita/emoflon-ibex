@@ -8,6 +8,7 @@ import org.emoflon.moflontohenshin.manipulationrules.noderules.CreateAppAndEngin
 import org.emoflon.moflontohenshin.manipulationrules.noderules.RuleNodeCreationRule;
 import org.emoflon.moflontohenshin.utils.HenshinHelper;
 import org.emoflon.moflontohenshin.utils.ManipulationHelper;
+import org.emoflon.moflontohenshin.utils.MoflonToHenshinController;
 import org.emoflon.moflontohenshin.utils.ParameterHelper;
 
 public class MoflonToHenshinConfigurator {
@@ -15,14 +16,25 @@ public class MoflonToHenshinConfigurator {
 	private ManipulationHelper manipulationHelper;
 	private ParameterHelper parameterHelper;
 	private HenshinHelper henshinHelper;
+	private MoflonToHenshinController moflonToHenshinController;
 	
-	public MoflonToHenshinConfigurator(){
-		createAllCreationRules();
+	private MoflonToHenshinConfigurator(){
 		this.manipulationHelper = new ManipulationHelper();
 		this.parameterHelper = new ParameterHelper();
-		this.henshinHelper = new HenshinHelper(this);
+		this.henshinHelper = new HenshinHelper();
 	}
-
+	
+	public static MoflonToHenshinConfigurator create(){
+		MoflonToHenshinConfigurator instance = new MoflonToHenshinConfigurator();
+		instance.init();
+		return instance;
+	}
+	
+	private void init(){
+		this.moflonToHenshinController = new MoflonToHenshinController(this);
+		createAllCreationRules();
+	}
+	
 	private void createAllCreationRules(){
 		createNodeCreationRules();
 		createEdgeCreationRules();
@@ -56,5 +68,10 @@ public class MoflonToHenshinConfigurator {
 	public HenshinHelper getHenshinHelper() {
 		return henshinHelper;
 	}
+
+	public MoflonToHenshinController getMoflonToHenshinController() {
+		return moflonToHenshinController;
+	}
+	
 	
 }

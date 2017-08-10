@@ -5,6 +5,7 @@ import org.eclipse.emf.henshin.model.HenshinFactory;
 import org.eclipse.emf.henshin.model.Module;
 import org.emoflon.moflontohenshin.MoflonToHenshinConfigurator;
 
+import language.LanguageFactory;
 import language.TGGRuleNode;
 
 public class CreateAppAndEngineRule extends NodeCreationRule {
@@ -15,7 +16,8 @@ public CreateAppAndEngineRule(MoflonToHenshinConfigurator moflonToHenshinConfigu
 
 	@Override
 	public EObject forceCreation(TGGRuleNode node) {
-		Module module = HenshinFactory.eINSTANCE.createModule();		
+		Module module = HenshinFactory.eINSTANCE.createModule();
+		module.getImports().add(LanguageFactory.eINSTANCE.getEPackage());
 		return module;
 	}
 

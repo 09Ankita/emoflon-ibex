@@ -1,45 +1,90 @@
 package org.emoflon.moflontohenshin.utils;
 
+import java.util.List;
+
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.henshin.interpreter.EGraph;
-import org.eclipse.emf.henshin.interpreter.Engine;
-import org.eclipse.emf.henshin.interpreter.RuleApplication;
-import org.eclipse.emf.henshin.interpreter.impl.EGraphImpl;
-import org.eclipse.emf.henshin.interpreter.impl.EngineImpl;
-import org.eclipse.emf.henshin.interpreter.impl.RuleApplicationImpl;
+import org.eclipse.emf.henshin.cpa.CPAOptions;
+import org.eclipse.emf.henshin.cpa.CpaByAGG;
+import org.eclipse.emf.henshin.cpa.UnsupportedRuleException;
+
+import org.eclipse.emf.henshin.cpa.result.CPAResult;
+import org.eclipse.emf.henshin.cpa.result.CriticalPair;
 import org.eclipse.emf.henshin.model.Module;
-import org.eclipse.emf.henshin.model.Parameter;
 import org.eclipse.emf.henshin.model.Rule;
-import org.emoflon.moflontohenshin.MoflonToHenshinConfigurator;
+
+import language.LanguageFactory;
 
 public class HenshinHelper {
-	private final MoflonToHenshinConfigurator moflonToHenshinConfigurator;
 	
-	public HenshinHelper(MoflonToHenshinConfigurator moflonToHenshinConfigurator){
-		this.moflonToHenshinConfigurator=moflonToHenshinConfigurator;
+	private CPAOptions cpaOptions;
+	
+	public HenshinHelper(){
+		initCPAEngine();
 	}
 	
-	public void startHenshinAnalysis(Resource resource){
-	 	EGraph graph = new EGraphImpl(resource);
-	 	
+	public void setOptions(boolean complete, boolean ignoreIdenticalRules, boolean reduceSameRuleAndSameMatch){
+		cpaOptions.setComplete(complete);
+		cpaOptions.setIgnore(ignoreIdenticalRules);
+		cpaOptions.setReduceSameRuleAndSameMatch(reduceSameRuleAndSameMatch);
+	}
+	
+	private void initCPAEngine(){
+		cpaOptions = new CPAOptions();
+		setOptions(true, true, true);
+	}
+	
+	public CPAResult startHenshinAnalysis(Resource resource, boolean computeDependencies, boolean computeConflicts) {
+		CpaByAGG cpaEngine = new CpaByAGG();
+
 		Module module = MoflonToHenshinUtils.getInstance().getCastItem(resource.getContents(), Module.class);
+
+		List<Rule> rules = MoflonToHenshinUtils.getInstance().mapToSubclass(module.getUnits(), Rule.class);
+
 		
-		MoflonToHenshinUtils.getInstance().mapToSubclass(module.getUnits(), Rule.class).forEach(u -> checkRule(u,graph));
+		
+		try {
+			cpaEngine.init(rules, cpaOptions);
+		} catch (UnsupportedRuleException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
+		CPAResult conflictResult = null;
+		CPAResult dependencyResult = null;
+
+		if (computeDependencies) {
+			dependencyResult = cpaEngine.runDependencyAnalysis();
+		}
+
+		if (computeConflicts) {
+			conflictResult = cpaEngine.runConflictAnalysis();
+		}
+
+		return joinCPAResults(conflictResult, dependencyResult);
 	}
 	
-	private void checkRule(Rule rule, EGraph graph){
-		Engine engine = new EngineImpl();
-		
-		RuleApplication ruleApplication = new RuleApplicationImpl(engine);
-		ruleApplication.setEGraph(graph);
-		ruleApplication.setRule(rule);
-		rule.getParameters().forEach(p -> setParameters(p, ruleApplication));
-		
-//		engine.
-		
-	}
+		private CPAResult joinCPAResults(CPAResult conflictResult, CPAResult dependencyResult) {
+			// if only conflicts or dependencies exist just return those.
+			if (conflictResult == null)
+				return dependencyResult;
+			if (dependencyResult == null)
+				return conflictResult;
+
+			// join the conflicts and dependencies
+			CPAResult cpaResult = new CPAResult();
+			if (conflictResult != null && dependencyResult != null) {
+				List<CriticalPair> conflCriticalPairs = conflictResult.getCriticalPairs();
+				for (CriticalPair critPair : conflCriticalPairs) {
+					cpaResult.addResult(critPair);
+				}
+				List<CriticalPair> depCriticalPairs = dependencyResult.getCriticalPairs();
+				for (CriticalPair critPair : depCriticalPairs) {
+					cpaResult.addResult(critPair);
+				}
+			}
+			return cpaResult;
+		}
 	
-	private void setParameters(Parameter parameter, RuleApplication ruleApplication){
-		ruleApplication.setParameterValue(parameter.getName(), moflonToHenshinConfigurator.getParameterHelper().getValue(parameter));
-	}
+	
+
 }
