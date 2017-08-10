@@ -13,7 +13,6 @@ import org.emoflon.ibex.tgg.operational.OperationalStrategy;
 import org.emoflon.ibex.tgg.operational.edge.RuntimeEdge;
 import org.emoflon.ibex.tgg.operational.edge.RuntimeEdgeHashingStrategy;
 import org.emoflon.ibex.tgg.operational.util.IMatch;
-import org.emoflon.ibex.tgg.operational.util.ManipulationUtil;
 
 import gnu.trove.map.TIntObjectMap;
 import gnu.trove.map.hash.TCustomHashMap;
@@ -174,22 +173,22 @@ public abstract class CC extends OperationalStrategy {
 			Collection<? extends TGGRuleNode> specNodes) {
 		THashSet<EObject> result = new THashSet<>();
 		specNodes.forEach(n -> {
-			result.add(ManipulationUtil.getVariableByName(n.getName(), comatch, match));
+			result.add(manipulationUtil.getVariableByName(n.getName(), comatch, match));
 		});
 		return result;
 	}
 
 	private THashSet<RuntimeEdge> getGreenEdges(IMatch match, HashMap<String, EObject> comatch, String ruleName) {
 		THashSet<RuntimeEdge> result = new THashSet<>();
-		result.addAll(ManipulationUtil.createEdges(match, comatch, ruleInfos.getGreenSrcEdges(ruleName), false));
-		result.addAll(ManipulationUtil.createEdges(match, comatch, ruleInfos.getGreenTrgEdges(ruleName), false));
+		result.addAll(manipulationUtil.createEdges(match, comatch, ruleInfos.getGreenSrcEdges(ruleName), false, isManipulated, pluginID));
+		result.addAll(manipulationUtil.createEdges(match, comatch, ruleInfos.getGreenTrgEdges(ruleName), false, isManipulated, pluginID));
 		return result;
 	}
 
 	private THashSet<RuntimeEdge> getBlackEdges(IMatch match, HashMap<String, EObject> comatch, String ruleName) {
 		THashSet<RuntimeEdge> result = new THashSet<>();
-		result.addAll(ManipulationUtil.createEdges(match, comatch, ruleInfos.getBlackSrcEdges(ruleName), false));
-		result.addAll(ManipulationUtil.createEdges(match, comatch, ruleInfos.getBlackTrgEdges(ruleName), false));
+		result.addAll(manipulationUtil.createEdges(match, comatch, ruleInfos.getBlackSrcEdges(ruleName), false, isManipulated, pluginID));
+		result.addAll(manipulationUtil.createEdges(match, comatch, ruleInfos.getBlackTrgEdges(ruleName), false, isManipulated, pluginID));
 		return result;
 	}
 
