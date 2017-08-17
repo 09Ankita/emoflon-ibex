@@ -36,9 +36,20 @@ public interface IOperationalResourceHandler {
 		return res;
 	}
 
-	default Resource createResource(String workspaceRelativePath) {
+	default Resource createResource(String workspaceRelativePath){
+		ResourceSet rs = getResourceSet();
 		URI uri = URI.createURI(workspaceRelativePath);
-		Resource res = getResourceSet().createResource(uri.resolve(getBase()), ContentHandler.UNSPECIFIED_CONTENT_TYPE);
+		URI base = getBase();
+		URI resolved = uri.resolve(base);
+	
+		Resource res = null;
+		try {
+			res = rs.getResource(resolved, true);
+		} catch (Exception e) {
+			if (res == null) {
+				res = rs.createResource(resolved, ContentHandler.UNSPECIFIED_CONTENT_TYPE);
+			}
+		}
 		return res;
 	}
 	
