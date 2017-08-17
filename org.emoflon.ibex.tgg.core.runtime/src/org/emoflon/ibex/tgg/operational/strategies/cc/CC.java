@@ -58,6 +58,10 @@ public abstract class CC extends OperationalStrategy {
 	public CC(String projectName, String workspacePath, boolean flatten, boolean debug) throws IOException {
 		super(projectName, workspacePath, flatten, debug);
 	}
+	
+	public CC(String projectName, String workspacePath, boolean flatten, boolean debug, String pluginID) throws IOException {
+		super(projectName, workspacePath, flatten, debug, pluginID);
+	}
 
 	@Override
 	protected boolean manipulateSrc() {
