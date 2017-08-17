@@ -200,6 +200,12 @@ public abstract class OperationalStrategy implements IOperationalResourceHandler
 		return base;
 	}
 
+	@Override
+	public String getProjectPath() {
+		return projectPath;
+	}
+	
+	@Override
 	public ResourceSet getResourceSet(){
 		return rs;
 	}

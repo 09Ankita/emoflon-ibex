@@ -13,7 +13,7 @@ public interface IOperationalResourceHandler {
 	void registerUserMetamodels() throws IOException;
 	
 	ResourceSet getResourceSet();
-	
+	String getProjectPath();
 	URI getBase();
 	
 	default void loadAndRegisterMetamodel(String workspaceRelativePath) throws IOException {
