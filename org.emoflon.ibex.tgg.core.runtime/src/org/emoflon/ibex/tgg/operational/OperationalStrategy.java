@@ -10,10 +10,8 @@ import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.resource.ContentHandler;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -45,7 +43,7 @@ import runtime.RuntimePackage;
 import runtime.TGGRuleApplication;
 import runtime.impl.RuntimePackageImpl;
 
-public abstract class OperationalStrategy implements IOperationalStrategy{
+public abstract class OperationalStrategy implements IOperationalResourceHandler{
 
 	protected final static Logger logger = Logger.getLogger(OperationalStrategy.class);
 	protected final URI base;
@@ -197,24 +195,13 @@ public abstract class OperationalStrategy implements IOperationalStrategy{
 		RuntimePackageImpl.init();
 	}
 
-	protected void loadAndRegisterMetamodel(String workspaceRelativePath) throws IOException {
-		Resource res = loadResource(workspaceRelativePath);
-		EPackage pack = (EPackage) res.getContents().get(0);
-		rs.getPackageRegistry().put(res.getURI().toString(), pack);
-		rs.getResources().remove(res);
+	@Override
+	public URI getBase() {
+		return base;
 	}
 
-	protected Resource loadResource(String workspaceRelativePath) throws IOException {
-		Resource res = createResource(workspaceRelativePath);
-		res.load(null);
-		EcoreUtil.resolveAll(res);
-		return res;
-	}
-
-	protected Resource createResource(String workspaceRelativePath) {
-		URI uri = URI.createURI(workspaceRelativePath);
-		Resource res = rs.createResource(uri.resolve(base), ContentHandler.UNSPECIFIED_CONTENT_TYPE);
-		return res;
+	public ResourceSet getResourceSet(){
+		return rs;
 	}
 
 	public void run() throws IOException {
@@ -496,10 +483,6 @@ public abstract class OperationalStrategy implements IOperationalStrategy{
 		EReference ref = specificationEdge.getType();
 		RuntimeEdge edge = new RuntimeEdge(src, trg, ref);
 		return edge;
-	}
-
-	public ResourceSet getResourceSet() {
-		return rs;
 	}
 
 	public Resource getSourceResource() {
