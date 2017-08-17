@@ -14,6 +14,10 @@ public abstract class SYNC extends OperationalStrategy {
 
 	private SYNC_Strategy strategy;
 	
+	public SYNC(String projectName, String workspacePath, boolean flatten, boolean debug, String pluginID) throws IOException {
+		super(projectName, workspacePath, flatten, debug, pluginID);
+	}
+	
 	public SYNC(String projectName, String workspacePath, boolean flatten, boolean debug) throws IOException {
 		super(projectName, workspacePath, flatten, debug);
 	}

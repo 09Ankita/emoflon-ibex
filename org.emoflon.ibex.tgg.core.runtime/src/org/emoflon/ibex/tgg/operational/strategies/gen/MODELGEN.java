@@ -25,7 +25,11 @@ import language.csp.TGGAttributeConstraintLibrary;
 public abstract class MODELGEN extends OperationalStrategy {
 
 	protected MODELGENStopCriterion stopCriterion;
-		
+	
+	public MODELGEN(String projectName, String workspacePath, boolean flatten, boolean debug, String pluginID) throws IOException {
+		super(projectName, workspacePath, flatten, debug, pluginID);
+	}
+	
 	public MODELGEN(String projectName, String workspacePath, boolean flatten, boolean debug) throws IOException {
 		super(projectName, workspacePath, flatten, debug);
 	}
