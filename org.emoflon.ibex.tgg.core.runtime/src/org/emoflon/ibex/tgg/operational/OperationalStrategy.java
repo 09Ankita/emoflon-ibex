@@ -84,6 +84,10 @@ public abstract class OperationalStrategy {
 		this(projectPath, workspacePath, flatten, debug, policy, null);
 	}
 	
+	public OperationalStrategy(String projectPath, String workspacePath, boolean flatten, boolean debug, String pluginID) {
+		this(projectPath, workspacePath, flatten, debug, new NextMatchUpdatePolicy(), pluginID);
+	}
+	
 	public OperationalStrategy(String projectPath, String workspacePath, boolean flatten, boolean debug, UpdatePolicy policy, String pluginID) {
 		base = URI.createPlatformResourceURI("/", true);
 		this.workspacePath = workspacePath;
