@@ -15,6 +15,8 @@ public interface IOperationalResourceHandler {
 	ResourceSet getResourceSet();
 	String getProjectPath();
 	URI getBase();
+	Resource getSourceResource();
+	Resource getTargetResource();
 	
 	default void loadAndRegisterMetamodel(String workspaceRelativePath) throws IOException {
 		Resource res = loadResource(workspaceRelativePath);
