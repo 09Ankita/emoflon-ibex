@@ -10,14 +10,18 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 public interface IOperationalResourceHandler {
+	// the metamodel function which is implemented by the user
 	void registerUserMetamodels() throws IOException;
 	
+	// getter function for interface interaction
 	ResourceSet getResourceSet();
 	String getProjectPath();
 	URI getBase();
 	Resource getSourceResource();
 	Resource getTargetResource();
 	
+	
+	//default resource handling
 	default void loadAndRegisterMetamodel(String workspaceRelativePath) throws IOException {
 		Resource res = loadResource(workspaceRelativePath);
 		EPackage pack = (EPackage) res.getContents().get(0);
