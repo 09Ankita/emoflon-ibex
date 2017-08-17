@@ -56,8 +56,6 @@ public abstract class MODELGEN extends OperationalStrategy {
 		EcoreUtil.resolveAll(rs);
 	}
 
-	protected abstract void registerUserMetamodels() throws IOException;
-
 	@Override
 	public boolean isPatternRelevant(String patternName) {
 		return patternName.endsWith(PatternSuffixes.MODELGEN);

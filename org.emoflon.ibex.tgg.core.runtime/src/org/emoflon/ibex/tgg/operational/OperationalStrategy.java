@@ -45,7 +45,7 @@ import runtime.RuntimePackage;
 import runtime.TGGRuleApplication;
 import runtime.impl.RuntimePackageImpl;
 
-public abstract class OperationalStrategy {
+public abstract class OperationalStrategy implements IOperationalStrategy{
 
 	protected final static Logger logger = Logger.getLogger(OperationalStrategy.class);
 	protected final URI base;
@@ -112,7 +112,7 @@ public abstract class OperationalStrategy {
 		loadModels();
 	}
 
-	protected abstract void registerUserMetamodels() throws IOException;
+	
 
 	/**
 	 * Decide if matches of this pattern should be watched and notified by the

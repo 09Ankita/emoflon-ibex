@@ -204,7 +204,7 @@ class DefaultFilesGenerator {
 	
 	def static generateMetamodelRegistration() {
 		'''
-		protected void registerUserMetamodels() throws IOException {
+		public void registerUserMetamodels() throws IOException {
 			//FIXME load and register source and target metamodels
 			
 			// Register correspondence metamodel last
