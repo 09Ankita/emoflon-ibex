@@ -15,9 +15,7 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.emoflon.ibex.tgg.compiler.BlackPatternCompiler;
-import org.emoflon.ibex.tgg.compiler.patterns.common.EdgePattern;
 import org.emoflon.ibex.tgg.compiler.patterns.common.IBlackPattern;
-import org.emoflon.ibex.tgg.compiler.patterns.common.IbexBasePattern;
 import org.emoflon.ibex.tgg.compiler.patterns.common.NacPattern;
 import org.emoflon.ibex.tgg.compiler.patterns.filter_app_conds.EdgeDirection;
 import org.emoflon.ibex.tgg.compiler.patterns.filter_app_conds.FilterACPattern;
@@ -63,12 +61,6 @@ public class BlackPatternFactory {
 				DomainType.SRC, false, false);
 		CheckTranslationStatePattern signProtocolTrgMarkedPattern = new CheckTranslationStatePattern(this,
 				DomainType.TRG, false, false);
-
-		CheckTranslationStatePattern signProtocolSrcMarkedContextPattern = new CheckTranslationStatePattern(this,
-				DomainType.SRC, false, true);
-		CheckTranslationStatePattern signProtocolTrgMarkedContextPattern = new CheckTranslationStatePattern(this,
-				DomainType.TRG, false, true);
-
 		CheckTranslationStatePattern localProtocolSrcMarkedPattern = new CheckTranslationStatePattern(this,
 				signProtocolSrcMarkedPattern, DomainType.SRC, true);
 		CheckTranslationStatePattern localProtocolTrgMarkedPattern = new CheckTranslationStatePattern(this,
@@ -79,21 +71,13 @@ public class BlackPatternFactory {
 
 		markedPatterns.add(localProtocolSrcMarkedPattern);
 		markedPatterns.add(localProtocolTrgMarkedPattern);
-		markedPatterns.add(signProtocolSrcMarkedPattern);
-		markedPatterns.add(signProtocolTrgMarkedPattern);
-		markedPatterns.add(signProtocolSrcMarkedContextPattern);
-		markedPatterns.add(signProtocolTrgMarkedContextPattern);
 
 		return Collections.unmodifiableCollection(markedPatterns);
 	}
 
-	public Collection<CheckTranslationStatePattern> getMarkedPatterns() {
-		return markedPatterns;
-	}
-
-	public IBlackPattern getMarkedPattern(DomainType domain, boolean local, boolean context) {
+	public IBlackPattern getMarkedPattern(DomainType domain) {
 		return markedPatterns.stream()
-				.filter(p -> p.getDomain().equals(domain) && (p.isLocal() == local) && (p.marksContext() == context))
+				.filter(p -> p.getDomain().equals(domain) && p.isLocal() && !p.marksContext())
 				.findFirst().get();
 	}
 

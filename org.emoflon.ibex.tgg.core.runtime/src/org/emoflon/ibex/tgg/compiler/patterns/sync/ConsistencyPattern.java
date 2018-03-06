@@ -3,12 +3,10 @@ package org.emoflon.ibex.tgg.compiler.patterns.sync;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.emoflon.ibex.tgg.compiler.patterns.BlackPatternFactory;
 import org.emoflon.ibex.tgg.compiler.patterns.PatternSuffixes;
-import org.emoflon.ibex.tgg.compiler.patterns.common.IBlackPattern;
 import org.emoflon.ibex.tgg.compiler.patterns.common.IbexBasePattern;
 import org.emoflon.ibex.tgg.compiler.patterns.filter_app_conds.FilterACStrategy;
 
@@ -27,6 +25,11 @@ import runtime.RuntimePackage;
 
 public class ConsistencyPattern extends IbexBasePattern {
 	private TGGRuleNode protocolNode;
+	private static final String CREATED_SRC_NAME = "createdSrc";
+	private static final String CREATED_TRG_NAME = "createdTrg";
+	
+	private static final String CONTEXT_SRC_NAME = "contextSrc";
+	private static final String CONTEXT_TRG_NAME = "contextTrg";
 	
 	public ConsistencyPattern(BlackPatternFactory factory) {
 		super(factory);
@@ -42,14 +45,13 @@ public class ConsistencyPattern extends IbexBasePattern {
 		Collection<TGGRuleNode> signatureNodes = new ArrayList<>(rule.getNodes());
 		signatureNodes.add(protocolNode);
 		
-		Collection<TGGRuleEdge> localEdges = Collections.emptyList();
+		Collection<TGGRuleEdge> localEdges = determineLocalEdges(protocolNode, signatureNodes);
 		Collection<TGGRuleNode> localNodes = Collections.emptyList();
 		
 		super.initialise(name, signatureNodes, localNodes, localEdges);
 	}
 	
 	protected void createPatternNetwork() {
-		createMarkedInvocations();
 		addPositiveInvocation(factory.createBlackPattern(WholeRulePattern.class));
 		
 		if (BlackPatternFactory.strategy != FilterACStrategy.NONE) {
@@ -75,48 +77,44 @@ public class ConsistencyPattern extends IbexBasePattern {
 		return protocolNode;
 	}
 	
-	public void createMarkedInvocations() {
-		TGGRuleNode ruleApplicationNode = getRuleApplicationNode(getSignatureNodes());
-		
-		signatureNodes
-		.stream()
-		.filter(e -> !e.equals(ruleApplicationNode))
-		.forEach(el ->
-		{
-			TGGRuleNode node = (TGGRuleNode) el;
-			if (nodeIsConnectedToRuleApplicationNode(node)) {
-				IBlackPattern markedPattern = getPatternFactory().getMarkedPattern(node.getDomainType(), false, node.getBindingType().equals(BindingType.CONTEXT));
-				TGGRuleNode invokedRuleApplicationNode = getRuleApplicationNode(markedPattern.getSignatureNodes());
-				TGGRuleNode invokedObject = (TGGRuleNode) markedPattern.getSignatureNodes()
-						.stream()
-						.filter(e -> !e.equals(invokedRuleApplicationNode))
-						.findFirst()
-						.get();
-				
-				Map<TGGRuleNode, TGGRuleNode> mapping = new HashMap<>();
-				mapping.put(ruleApplicationNode, invokedRuleApplicationNode);
-				mapping.put(node, invokedObject);
-				
-				addPositiveInvocation(markedPattern, mapping);
-			}
-		});
+	public Collection<TGGRuleEdge> determineLocalEdges(TGGRuleNode protocolNode, Collection<TGGRuleNode> signatureNodes) {
+		return signatureNodes
+				.stream()
+				.filter(e -> !e.equals(protocolNode))
+				.filter(this::nodeIsConnectedToRuleApplicationNode)
+				.map(node ->
+				{
+					TGGRuleEdge edge = LanguageFactory.eINSTANCE.createTGGRuleEdge();
+					boolean context = node.getBindingType() == BindingType.CONTEXT;
+
+					switch (node.getDomainType()) {
+					case SRC:
+						edge.setName(context? CONTEXT_SRC_NAME : CREATED_SRC_NAME);
+						edge.setType(context? RuntimePackage.Literals.TGG_RULE_APPLICATION__CONTEXT_SRC : RuntimePackage.Literals.TGG_RULE_APPLICATION__CREATED_SRC);
+						break;
+
+					case TRG:
+						edge.setName(context? CONTEXT_TRG_NAME : CREATED_TRG_NAME);
+						edge.setType(context? RuntimePackage.Literals.TGG_RULE_APPLICATION__CONTEXT_TRG : RuntimePackage.Literals.TGG_RULE_APPLICATION__CREATED_TRG);
+						break;
+					default:
+						throw new IllegalArgumentException("Domain can only be src or trg!");
+					}
+
+					edge.setDomainType(node.getDomainType());
+					edge.setBindingType(BindingType.CONTEXT);
+					edge.setSrcNode(protocolNode);
+					edge.setTrgNode(node);
+
+					return edge;
+				})
+				.collect(Collectors.toList());
 	}
 
 	private boolean nodeIsConnectedToRuleApplicationNode(TGGRuleNode node) {
 		return !node.getDomainType().equals(DomainType.CORR);
 	}
 
-	private TGGRuleNode getRuleApplicationNode(Collection<TGGRuleNode> elements) {
-		return elements.stream()
-				.filter(this::isRuleApplicationNode)
-				.findAny()
-				.get();
-	}
-
-	private boolean isRuleApplicationNode(TGGRuleNode n) {
-		return n.getType().equals(RuntimePackage.eINSTANCE.getTGGRuleApplication());
-	}
-	
 	public static String getProtocolNodeName(String ruleName) {
 		return ruleName + protocolNodeSuffix;
 	}

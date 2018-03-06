@@ -25,11 +25,11 @@ public class EdgePattern extends IbexBasePattern {
 		LanguageFactoryImpl lfi = new LanguageFactoryImpl();
 		
 		src = lfi.createTGGRuleNode();
-		src.setType(sampleEdge.getSrcNode().getType());
+		src.setType(sampleEdge.getType().getEContainingClass());
 		src.setName("source");
 		
 		trg = lfi.createTGGRuleNode();
-		trg.setType(sampleEdge.getTrgNode().getType());
+		trg.setType(sampleEdge.getType().getEReferenceType());
 		trg.setName("target");
 		
 		edge = lfi.createTGGRuleEdge();
