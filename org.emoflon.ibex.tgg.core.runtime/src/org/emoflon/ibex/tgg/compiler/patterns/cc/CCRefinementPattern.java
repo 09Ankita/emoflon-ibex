@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 import org.emoflon.ibex.tgg.compiler.patterns.BlackPatternFactory;
 import org.emoflon.ibex.tgg.compiler.patterns.PatternSuffixes;
-import org.emoflon.ibex.tgg.compiler.patterns.common.CorrContextPattern;
+//import org.emoflon.ibex.tgg.compiler.patterns.common.CorrContextPattern;
 import org.emoflon.ibex.tgg.compiler.patterns.common.IbexBasePattern;
 import org.emoflon.ibex.tgg.compiler.patterns.common.SrcPattern;
 import org.emoflon.ibex.tgg.compiler.patterns.common.TrgPattern;
@@ -55,7 +55,7 @@ public class CCRefinementPattern extends IbexBasePattern{
 	protected void createPatternNetwork(BlackPatternFactory factory) {
 		addPositiveInvocation(factory.createBlackPattern(SrcPattern.class));
 		addPositiveInvocation(factory.createBlackPattern(TrgPattern.class));
-		addPositiveInvocation(factory.createBlackPattern(CorrContextPattern.class));
+		//addPositiveInvocation(factory.createBlackPattern(CorrContextPattern.class));
 		
 		if (isComplementRule(factory.getRule())) {
 			TGGComplementRule compRule = (TGGComplementRule) factory.getRule();

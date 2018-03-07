@@ -46,11 +46,12 @@ public class CorrPattern extends AbstractCorrPattern {
 	}
 
 	private void createPatternNetwork(BlackPatternFactory factory) {
-		addPositiveInvocation(factory.createBlackPattern(CorrContextPattern.class));
+		//addPositiveInvocation(factory.createBlackPattern(CorrContextPattern.class));
 	}
 	
 	@Override
 	protected boolean injectivityIsAlreadyChecked(TGGRuleNode node1, TGGRuleNode node2) {
-		return node1.getBindingType() == BindingType.CONTEXT && node2.getBindingType() == BindingType.CONTEXT;
+		return false;
+		//return node1.getBindingType() == BindingType.CONTEXT && node2.getBindingType() == BindingType.CONTEXT;
 	}
 }

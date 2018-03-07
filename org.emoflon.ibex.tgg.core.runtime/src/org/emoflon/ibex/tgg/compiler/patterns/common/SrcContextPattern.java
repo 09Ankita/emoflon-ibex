@@ -3,13 +3,15 @@ package org.emoflon.ibex.tgg.compiler.patterns.common;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.stream.Collectors;
-
+import org.eclipse.emf.ecore.EReference;
 import org.emoflon.ibex.tgg.compiler.patterns.BlackPatternFactory;
 import org.emoflon.ibex.tgg.compiler.patterns.PatternSuffixes;
 
 import language.BindingType;
 import language.DomainType;
+import language.LanguageFactory;
 import language.TGGRule;
+import language.TGGRuleCorr;
 import language.TGGRuleEdge;
 import language.TGGRuleNode;
 
@@ -32,13 +34,19 @@ public class SrcContextPattern extends IbexBasePattern {
 					.filter(this::isLocalEdge)
 					.collect(Collectors.toList());
 		
+		rule.getNodes().stream()
+			.filter(this::isContextCorr)
+			.map(TGGRuleCorr.class::cast)
+			.forEach(corr -> extractSourceEdges(corr, localEdges));
+		
 		Collection<TGGRuleNode> localNodes = Collections.emptyList();
 		
 		super.initialise(name, signatureNodes, localNodes, localEdges);
 	}
 	
 	private boolean isSignatureNode(TGGRuleNode n) {
-		return n.getDomainType() == DomainType.SRC && n.getBindingType() == BindingType.CONTEXT;
+		return n.getDomainType() == DomainType.SRC && n.getBindingType() == BindingType.CONTEXT
+				|| isContextCorr(n) || isConnectedToAContextCorr(n) ;
 	}
 
 	private boolean isLocalEdge(TGGRuleEdge e) {
@@ -53,5 +61,24 @@ public class SrcContextPattern extends IbexBasePattern {
 	protected boolean injectivityIsAlreadyChecked(TGGRuleNode node1, TGGRuleNode node2) {
 		// Leaf pattern so we have to check injectivity here
 		return false;
+	}
+	
+	protected boolean isConnectedToAContextCorr(TGGRuleNode n) {
+		return n.getIncomingCorrsSource().stream().anyMatch(this::isContextCorr);
+	}
+
+	protected boolean isContextCorr(TGGRuleNode n) {
+		return n.getBindingType() == BindingType.CONTEXT && n instanceof TGGRuleCorr;
+	}
+	
+	public static void extractSourceEdges(TGGRuleCorr corr, Collection<TGGRuleEdge> localEdges) {
+		TGGRuleEdge source = LanguageFactory.eINSTANCE.createTGGRuleEdge();
+		source.setBindingType(corr.getBindingType());
+		source.setDomainType(DomainType.SRC);
+		source.setName("source");
+		source.setType((EReference) corr.getType().getEStructuralFeature("source"));
+		source.setSrcNode(corr);
+		source.setTrgNode(corr.getSource());
+		localEdges.add(source);
 	}
 }

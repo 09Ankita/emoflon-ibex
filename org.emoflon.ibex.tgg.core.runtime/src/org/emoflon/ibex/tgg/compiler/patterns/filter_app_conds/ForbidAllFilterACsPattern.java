@@ -20,6 +20,7 @@ import language.BindingType;
 import language.DomainType;
 import language.TGG;
 import language.TGGRule;
+import language.TGGRuleCorr;
 import language.TGGRuleEdge;
 import language.TGGRuleNode;
 
@@ -40,7 +41,7 @@ public class ForbidAllFilterACsPattern extends IbexBasePattern {
 		String name = factory.getRule().getName() + getPatternNameSuffix(domain);
 		
 		Collection<TGGRuleNode> signatureNodes = factory.getFlattenedVersionOfRule().getNodes().stream()
-				   .filter(node -> node.getDomainType() == domain)
+				   .filter(node -> node.getDomainType() == domain || isContextCorr(node))
 				   .collect(Collectors.toList());
 	
 		Collection<TGGRuleEdge> localEdges = Collections.emptyList();
@@ -144,5 +145,9 @@ public class ForbidAllFilterACsPattern extends IbexBasePattern {
 
 	public static String getPatternNameSuffix(DomainType domain){
 		return PatternSuffixes.NO_FILTER_ACs(domain);
+	}
+	
+	protected boolean isContextCorr(TGGRuleNode n) {
+		return n.getBindingType() == BindingType.CONTEXT && n instanceof TGGRuleCorr;
 	}
 }

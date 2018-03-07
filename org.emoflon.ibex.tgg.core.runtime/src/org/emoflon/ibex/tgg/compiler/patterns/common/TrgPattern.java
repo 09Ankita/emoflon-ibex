@@ -10,6 +10,7 @@ import org.emoflon.ibex.tgg.compiler.patterns.PatternSuffixes;
 import language.BindingType;
 import language.DomainType;
 import language.TGGRule;
+import language.TGGRuleCorr;
 import language.TGGRuleEdge;
 import language.TGGRuleNode;
 
@@ -38,7 +39,7 @@ public class TrgPattern extends IbexBasePattern {
 	}
 
 	private boolean isSignatureNode(TGGRuleNode e) {
-		return e.getDomainType() == DomainType.TRG;
+		return e.getDomainType() == DomainType.TRG || isContextCorr(e);
 	}
 
 	private boolean isLocalEdge(TGGRuleEdge e) {
@@ -53,5 +54,9 @@ public class TrgPattern extends IbexBasePattern {
 	protected boolean injectivityIsAlreadyChecked(TGGRuleNode node1, TGGRuleNode node2) {
 		// If both nodes are context then this has been checked in TrgContext
 		return node1.getBindingType() == BindingType.CONTEXT && node2.getBindingType() == BindingType.CONTEXT;
+	}
+	
+	protected boolean isContextCorr(TGGRuleNode n) {
+		return n.getBindingType() == BindingType.CONTEXT && n instanceof TGGRuleCorr;
 	}
 }

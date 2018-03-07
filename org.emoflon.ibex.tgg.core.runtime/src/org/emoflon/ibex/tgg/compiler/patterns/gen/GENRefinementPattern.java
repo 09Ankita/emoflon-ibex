@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 import org.emoflon.ibex.tgg.compiler.patterns.BlackPatternFactory;
 import org.emoflon.ibex.tgg.compiler.patterns.PatternSuffixes;
-import org.emoflon.ibex.tgg.compiler.patterns.common.CorrContextPattern;
+//import org.emoflon.ibex.tgg.compiler.patterns.common.CorrContextPattern;
 import org.emoflon.ibex.tgg.compiler.patterns.common.IbexBasePattern;
 import org.emoflon.ibex.tgg.compiler.patterns.common.SrcContextPattern;
 import org.emoflon.ibex.tgg.compiler.patterns.common.TrgContextPattern;
@@ -53,7 +53,7 @@ public class GENRefinementPattern extends IbexBasePattern {
 
 	protected void createPatternNetwork(BlackPatternFactory factory) {
 		addPositiveInvocation(factory.createBlackPattern(SrcContextPattern.class));
-		addPositiveInvocation(factory.createBlackPattern(CorrContextPattern.class));
+		//addPositiveInvocation(factory.createBlackPattern(CorrContextPattern.class));
 		addPositiveInvocation(factory.createBlackPattern(TrgContextPattern.class));
 		
 		if (isComplementRule(factory.getRule())) { 

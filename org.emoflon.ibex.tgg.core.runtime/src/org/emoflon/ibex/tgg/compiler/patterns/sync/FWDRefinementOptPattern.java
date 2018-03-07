@@ -2,7 +2,7 @@ package org.emoflon.ibex.tgg.compiler.patterns.sync;
 
 import org.emoflon.ibex.tgg.compiler.patterns.BlackPatternFactory;
 import org.emoflon.ibex.tgg.compiler.patterns.PatternSuffixes;
-import org.emoflon.ibex.tgg.compiler.patterns.common.CorrContextPattern;
+//import org.emoflon.ibex.tgg.compiler.patterns.common.CorrContextPattern;
 import org.emoflon.ibex.tgg.compiler.patterns.common.SrcPattern;
 import org.emoflon.ibex.tgg.compiler.patterns.common.TrgContextPattern;
 
@@ -17,7 +17,7 @@ public class FWDRefinementOptPattern extends FWDRefinementPattern {
 	
 	protected void createPatternNetwork() {
 		addPositiveInvocation(factory.createBlackPattern(SrcPattern.class));
-		addPositiveInvocation(factory.createBlackPattern(CorrContextPattern.class));
+		//addPositiveInvocation(factory.createBlackPattern(CorrContextPattern.class));
 		addPositiveInvocation(factory.createBlackPattern(TrgContextPattern.class));
 
 		for (TGGRule superRule : factory.getRule().getRefines())

@@ -5,7 +5,7 @@ import static org.emoflon.ibex.tgg.util.MAUtil.isComplementRule;
 
 import org.emoflon.ibex.tgg.compiler.patterns.BlackPatternFactory;
 import org.emoflon.ibex.tgg.compiler.patterns.PatternSuffixes;
-import org.emoflon.ibex.tgg.compiler.patterns.common.CorrContextPattern;
+//import org.emoflon.ibex.tgg.compiler.patterns.common.CorrContextPattern;
 import org.emoflon.ibex.tgg.compiler.patterns.common.SrcContextPattern;
 import org.emoflon.ibex.tgg.compiler.patterns.common.TrgPattern;
 
@@ -22,7 +22,7 @@ public class BWDRefinementPattern extends BWDBlackPattern {
 	
 	protected void createPatternNetwork() {
 		addPositiveInvocation(factory.createBlackPattern(TrgPattern.class));
-		addPositiveInvocation(factory.createBlackPattern(CorrContextPattern.class));
+		//addPositiveInvocation(factory.createBlackPattern(CorrContextPattern.class));
 		addPositiveInvocation(factory.createBlackPattern(SrcContextPattern.class));
 
 		createMarkedInvocations(true, DomainType.TRG);

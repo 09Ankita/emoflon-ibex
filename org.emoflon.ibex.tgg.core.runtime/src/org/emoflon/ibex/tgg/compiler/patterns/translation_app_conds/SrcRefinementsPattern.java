@@ -9,8 +9,10 @@ import org.emoflon.ibex.tgg.compiler.patterns.PatternSuffixes;
 import org.emoflon.ibex.tgg.compiler.patterns.common.IbexBasePattern;
 import org.emoflon.ibex.tgg.compiler.patterns.common.SrcPattern;
 
+import language.BindingType;
 import language.DomainType;
 import language.TGGRule;
+import language.TGGRuleCorr;
 import language.TGGRuleEdge;
 import language.TGGRuleNode;
 
@@ -45,11 +47,15 @@ public class SrcRefinementsPattern extends IbexBasePattern {
 	}
 
 	private boolean isSignatureNode(TGGRuleNode node) {
-		return node.getDomainType() == DomainType.SRC;
+		return node.getDomainType() == DomainType.SRC || isContextCorr(node);
 	}	
 	
 	@Override
 	protected boolean injectivityIsAlreadyChecked(TGGRuleNode node1, TGGRuleNode node2) {
 		return true;
+	}
+	
+	protected boolean isContextCorr(TGGRuleNode n) {
+		return n.getBindingType() == BindingType.CONTEXT && n instanceof TGGRuleCorr;
 	}
 }
