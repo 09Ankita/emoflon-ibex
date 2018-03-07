@@ -73,10 +73,10 @@ public class BlackPatternCompiler {
 			}
 			
 			// Create edge patterns for all patterns found so far
-			for (IBlackPattern pattern : factory.getPatterns()) {
+			/*for (IBlackPattern pattern : factory.getPatterns()) {
 				if (IbexBasePattern.class.isAssignableFrom(pattern.getClass()))
 					((IbexBasePattern) pattern).getOptimiser().replaceEdges((IbexBasePattern) pattern);
-			}
+			}*/
 			
 			ruleToPatterns.put(rule.getName(), factory.getPatterns());
 		}
